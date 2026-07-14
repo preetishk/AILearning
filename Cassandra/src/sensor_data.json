@@ -1,0 +1,8 @@
+[
+  { "sensor_id": "sensor_A1", "location": "Warehouse-1", "temperature": 22.5, "humidity": 58.3 },
+  { "sensor_id": "sensor_A1", "location": "Warehouse-1", "temperature": 23.1, "humidity": 57.9 },
+  { "sensor_id": "sensor_B2", "location": "Warehouse-2", "temperature": 19.8, "humidity": 62.1 },
+  { "sensor_id": "sensor_B2", "location": "Warehouse-2", "temperature": 20.4, "humidity": 61.5 },
+  { "sensor_id": "sensor_C3", "location": "Office",      "temperature": 21.0, "humidity": 45.0 },
+  { "sensor_id": "sensor_C3", "location": "Office",      "temperature": 21.3, "humidity": 44.7 }
+]
