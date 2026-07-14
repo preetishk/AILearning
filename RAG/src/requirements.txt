@@ -1,0 +1,5 @@
+# RAG vs RAG+BM25 demo dependencies
+
+chromadb>=0.5.0
+rank-bm25>=0.2.2
+requests>=2.31.0
