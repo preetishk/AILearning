@@ -1,0 +1,21 @@
+# Context-Aware Print Management Application
+# Requirements for running the AI-powered print assistant
+
+# Core Framework
+streamlit>=1.31.0
+
+# LangChain and LangGraph
+langchain>=0.1.0
+langchain-core>=0.1.0
+langchain-ollama>=0.1.0
+langgraph>=0.0.20
+
+# Ollama Integration
+ollama>=0.1.0
+
+# Database (SQLite is built-in to Python, but we list it for clarity)
+# sqlite3 is included in Python standard library
+
+# Additional utilities
+python-dotenv>=1.0.0
+typing-extensions>=4.9.0
