@@ -1,0 +1,65 @@
+[project]
+name = "knowledge-base"
+version = "0.1.0"
+requires-python = ">=3.11"
+
+dependencies = [
+    # ── LLM Providers ───────────────────────────────────────────
+    "openai>=1.30.0",
+    "tiktoken>=0.7.0",
+
+    # ── Code Chunking ────────────────────────────────────────────
+    "tree-sitter>=0.22.0",
+    "tree-sitter-languages>=1.10.0",
+
+    # ── Schema Validation ────────────────────────────────────────
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.0.0",
+
+    # ── Embeddings ───────────────────────────────────────────────
+    "sentence-transformers>=3.0.0",
+    "numpy>=1.26.0",
+
+    # ── Vector DB ────────────────────────────────────────────────
+    "chromadb>=0.5.0",
+
+    # ── Graph DB ─────────────────────────────────────────────────
+    "neo4j>=5.20.0",
+
+    # ── API + Serving ────────────────────────────────────────────
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.29.0",
+    "python-multipart>=0.0.9",
+
+    # ── CLI ──────────────────────────────────────────────────────
+    "click>=8.1.0",
+    "rich>=13.7.0",
+
+    # ── Utilities ────────────────────────────────────────────────
+    "httpx>=0.27.0",
+    "tenacity>=8.3.0",
+    "python-dotenv>=1.0.0",
+    "python-slugify>=8.0.0",
+    "scikit-learn>=1.4.0",
+    "gitpython>=3.1.0",
+    "PyYAML>=6.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.4.0",
+    "mypy>=1.10.0",
+    "httpx>=0.27.0",
+]
+
+[project.scripts]
+kb = "cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
