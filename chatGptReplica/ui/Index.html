@@ -1,0 +1,385 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Local Chat — PoC</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+body { 
+    font-family: system-ui, Arial; 
+    display: flex; 
+    height: 100vh; 
+    margin: 0; 
+    background-color: #f8f9fa;
+}
+.sidebar { 
+    width: 260px; 
+    border-right: 1px solid #ddd; 
+    padding: 12px; 
+    box-sizing: border-box; 
+    background: white;
+}
+.pages { margin-top: 12px }
+.page-item { 
+    padding: 8px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    margin-bottom: 4px;
+    transition: background-color 0.2s;
+}
+.page-item:hover { background: #f8f9fa; }
+.page-item.active { background: #007bff; color: white; }
+.main { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    background: white;
+}
+.messages { 
+    flex: 1; 
+    padding: 16px; 
+    overflow: auto; 
+    display: flex; 
+    flex-direction: column;
+}
+.msg { 
+    margin-bottom: 12px; 
+    max-width: 70%; 
+    word-wrap: break-word;
+}
+.msg.user { 
+    align-self: flex-end; 
+    background: #007bff; 
+    color: white; 
+    padding: 10px; 
+    border-radius: 18px;
+}
+.msg.assistant { 
+    align-self: flex-start; 
+    background: #f1f3f4; 
+    padding: 10px; 
+    border-radius: 18px;
+}
+.controls { 
+    padding: 12px; 
+    border-top: 1px solid #ddd; 
+    background: white;
+}
+.input { 
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 12px; 
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+}
+.input:focus { border-color: #007bff; }
+.row { display: flex; gap: 8px; align-items: center; }
+button { 
+    padding: 8px 16px; 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    background: #007bff; 
+    color: white;
+    transition: background-color 0.2s;
+}
+button:hover { background: #0056b3; }
+button:disabled { background: #ccc; cursor: not-allowed; }
+.loading { opacity: 0.7; }
+</style>
+</head>
+<body>
+<div class="sidebar">
+    <h3>Chat Pages</h3>
+    <div>
+        <input id="newTitle" placeholder="Page title (optional)" style="width:100%; margin-bottom: 8px; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" />
+        <button id="createBtn" style="width:100%;">+ New Page</button>
+    </div>
+    <div class="pages" id="pages"></div>
+</div>
+<div class="main">
+    <div class="messages" id="messages">
+        <div style="text-align: center; color: #666; margin-top: 50px;">
+            Select or create a page to start chatting
+        </div>
+    </div>
+    <div class="controls">
+        <div class="row">
+            <input id="inputText" class="input" placeholder="Type your message..." />
+            <button id="sendBtn">Send</button>
+        </div>
+        <div style="margin-top: 8px; display: flex; gap: 8px;">
+            <input id="feedbackText" placeholder="Feedback comment" style="flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" />
+            <button id="feedbackBtn">📝 Feedback</button>
+            <button id="deletePageBtn" style="background: #dc3545;">🗑️ Delete Page</button>
+        </div>
+    </div>
+</div>
+
+<script>
+let pages = []
+let activePage = null
+
+// Initialize app
+async function init() {
+    try {
+        await fetchPages()
+        if (pages.length > 0) {
+            await selectPage(pages[0])
+        }
+    } catch (error) {
+        console.error('Failed to initialize:', error)
+        showError('Failed to connect to server. Make sure the Flask server is running.')
+    }
+}
+
+async function fetchPages() {
+    const response = await fetch('/api/pages')
+    if (!response.ok) throw new Error('Failed to fetch pages')
+    pages = await response.json()
+    renderPages()
+}
+
+function renderPages() {
+    const container = document.getElementById('pages')
+    container.innerHTML = ''
+    pages.forEach(page => {
+        const element = document.createElement('div')
+        element.className = 'page-item' + (activePage && activePage.id === page.id ? ' active' : '')
+        element.textContent = page.title
+        element.onclick = () => selectPage(page)
+        container.appendChild(element)
+    })
+}
+
+async function selectPage(page) {
+    activePage = page
+    renderPages()
+    await loadMessages()
+}
+
+async function createPage() {
+    const title = document.getElementById('newTitle').value.trim() || `Page ${pages.length + 1}`
+    
+    try {
+        const response = await fetch('/api/pages', { 
+            method: 'POST', 
+            headers: { 'Content-Type': 'application/json' }, 
+            body: JSON.stringify({ title }) 
+        })
+        
+        if (!response.ok) throw new Error('Failed to create page')
+        
+        const newPage = await response.json()
+        pages.push(newPage)
+        document.getElementById('newTitle').value = ''
+        
+        if (!activePage) {
+            await selectPage(newPage)
+        }
+        renderPages()
+    } catch (error) {
+        console.error('Failed to create page:', error)
+        showError('Failed to create page')
+    }
+}
+
+async function deletePage() {
+    if (!activePage) {
+        showError('No page selected')
+        return
+    }
+    
+    if (!confirm(`Delete page "${activePage.title}"?`)) return
+    
+    try {
+        const response = await fetch(`/api/pages/${activePage.id}`, { method: 'DELETE' })
+        if (!response.ok) throw new Error('Failed to delete page')
+        
+        pages = pages.filter(p => p.id !== activePage.id)
+        activePage = pages.length > 0 ? pages[0] : null
+        
+        if (activePage) {
+            await selectPage(activePage)
+        } else {
+            document.getElementById('messages').innerHTML = '<div style="text-align: center; color: #666; margin-top: 50px;">No pages available. Create a new page to start chatting.</div>'
+        }
+        renderPages()
+    } catch (error) {
+        console.error('Failed to delete page:', error)
+        showError('Failed to delete page')
+    }
+}
+
+async function loadMessages() {
+    if (!activePage) return
+    
+    try {
+        const response = await fetch(`/api/pages/${activePage.id}/messages`)
+        if (!response.ok) throw new Error('Failed to load messages')
+        
+        const messages = await response.json()
+        renderMessages(messages)
+    } catch (error) {
+        console.error('Failed to load messages:', error)
+        showError('Failed to load messages')
+    }
+}
+
+function renderMessages(messages) {
+    const container = document.getElementById('messages')
+    container.innerHTML = ''
+    
+    if (messages.length === 0) {
+        container.innerHTML = '<div style="text-align: center; color: #666; margin-top: 50px;">Start a conversation...</div>'
+        return
+    }
+    
+    messages.forEach(msg => {
+        if (msg.role === 'feedback') return // Skip feedback messages in display
+        
+        const element = document.createElement('div')
+        element.className = `msg ${msg.role}`
+        element.textContent = msg.content
+        container.appendChild(element)
+    })
+    
+    // Scroll to bottom
+    container.scrollTop = container.scrollHeight
+}
+
+async function sendMessage() {
+    if (!activePage) {
+        showError('No page selected')
+        return
+    }
+    
+    const input = document.getElementById('inputText')
+    const message = input.value.trim()
+    
+    if (!message) return
+    
+    // Clear input and disable send button
+    input.value = ''
+    const sendBtn = document.getElementById('sendBtn')
+    sendBtn.disabled = true
+    sendBtn.textContent = 'Sending...'
+    
+    // Add user message to UI immediately
+    addMessageToUI('user', message)
+    
+    try {
+        const response = await fetch(`/api/pages/${activePage.id}/messages`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ role: 'user', content: message })
+        })
+        
+        if (!response.ok) throw new Error('Failed to send message')
+        
+        const result = await response.json()
+        
+        // Add assistant response to UI
+        addMessageToUI('assistant', result.reply)
+        
+    } catch (error) {
+        console.error('Failed to send message:', error)
+        showError('Failed to send message. Check if Ollama is running.')
+        // Remove the user message if sending failed
+        await loadMessages()
+    } finally {
+        // Re-enable send button
+        sendBtn.disabled = false
+        sendBtn.textContent = 'Send'
+        input.focus()
+    }
+}
+
+function addMessageToUI(role, content) {
+    const container = document.getElementById('messages')
+    
+    // Remove "start conversation" message if present
+    if (container.children.length === 1 && container.children[0].textContent.includes('Start a conversation')) {
+        container.innerHTML = ''
+    }
+    
+    const element = document.createElement('div')
+    element.className = `msg ${role}`
+    element.textContent = content
+    container.appendChild(element)
+    
+    // Scroll to bottom
+    container.scrollTop = container.scrollHeight
+}
+
+async function sendFeedback() {
+    if (!activePage) {
+        showError('No page selected')
+        return
+    }
+    
+    const input = document.getElementById('feedbackText')
+    const comment = input.value.trim()
+    
+    if (!comment) return
+    
+    try {
+        const response = await fetch(`/api/pages/${activePage.id}/feedback`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ comment, rating: 5 })
+        })
+        
+        if (!response.ok) throw new Error('Failed to send feedback')
+        
+        input.value = ''
+        showSuccess('Feedback sent!')
+    } catch (error) {
+        console.error('Failed to send feedback:', error)
+        showError('Failed to send feedback')
+    }
+}
+
+function showError(message) {
+    const toast = document.createElement('div')
+    toast.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #dc3545; color: white; padding: 12px 20px; border-radius: 6px; z-index: 1000;'
+    toast.textContent = message
+    document.body.appendChild(toast)
+    setTimeout(() => toast.remove(), 3000)
+}
+
+function showSuccess(message) {
+    const toast = document.createElement('div')
+    toast.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #28a745; color: white; padding: 12px 20px; border-radius: 6px; z-index: 1000;'
+    toast.textContent = message
+    document.body.appendChild(toast)
+    setTimeout(() => toast.remove(), 2000)
+}
+
+// Event listeners
+document.getElementById('createBtn').onclick = createPage
+document.getElementById('sendBtn').onclick = sendMessage
+document.getElementById('deletePageBtn').onclick = deletePage
+document.getElementById('feedbackBtn').onclick = sendFeedback
+
+// Enter key support
+document.getElementById('inputText').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault()
+        sendMessage()
+    }
+})
+
+document.getElementById('newTitle').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault()
+        createPage()
+    }
+})
+
+// Initialize when page loads
+window.onload = init
+</script>
+</body>
+</html>
