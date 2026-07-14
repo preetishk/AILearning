@@ -1,0 +1,31 @@
+{
+  "parse_summaries": [
+    {
+      "file": "src/rayExample.py",
+      "successful": true,
+      "start": {
+        "row": 0,
+        "column": 0
+      },
+      "end": {
+        "row": 63,
+        "column": 30
+      },
+      "duration": {
+        "secs": 0,
+        "nanos": 774100
+      },
+      "bytes": 1387
+    }
+  ],
+  "cumulative_stats": {
+    "successful_parses": 1,
+    "total_parses": 1,
+    "total_bytes": 1387,
+    "total_duration": {
+      "secs": 0,
+      "nanos": 774100
+    }
+  },
+  "source_count": 1
+}

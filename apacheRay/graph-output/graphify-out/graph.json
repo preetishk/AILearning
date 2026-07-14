@@ -1,0 +1,258 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "ast_names.py",
+      "file_type": "code",
+      "source_file": "ast_names.py",
+      "source_location": "L1",
+      "id": "ast_names",
+      "community": 1,
+      "norm_label": "ast_names.py"
+    },
+    {
+      "label": "walk()",
+      "file_type": "code",
+      "source_file": "ast_names.py",
+      "source_location": "L36",
+      "id": "ast_names_walk",
+      "community": 1,
+      "norm_label": "walk()"
+    },
+    {
+      "label": "find_functions()",
+      "file_type": "code",
+      "source_file": "ast_names.py",
+      "source_location": "L52",
+      "id": "ast_names_find_functions",
+      "community": 1,
+      "norm_label": "find_functions()"
+    },
+    {
+      "label": "Demonstrates how tree-sitter resolves identifier names from [row, col] coordinat",
+      "file_type": "rationale",
+      "source_file": "ast_names.py",
+      "source_location": "L1",
+      "id": "ast_names_rationale_1",
+      "community": 1,
+      "norm_label": "demonstrates how tree-sitter resolves identifier names from [row, col] coordinat"
+    },
+    {
+      "label": "dashboard.py",
+      "file_type": "code",
+      "source_file": "dashboard.py",
+      "source_location": "L1",
+      "id": "dashboard",
+      "community": 3,
+      "norm_label": "dashboard.py"
+    },
+    {
+      "label": "rayExample.py",
+      "file_type": "code",
+      "source_file": "rayExample.py",
+      "source_location": "L1",
+      "id": "rayexample",
+      "community": 2,
+      "norm_label": "rayexample.py"
+    },
+    {
+      "label": "retrieve()",
+      "file_type": "code",
+      "source_file": "rayExample.py",
+      "source_location": "L9",
+      "id": "rayexample_retrieve",
+      "community": 2,
+      "norm_label": "retrieve()"
+    },
+    {
+      "label": "print_runtime()",
+      "file_type": "code",
+      "source_file": "rayExample.py",
+      "source_location": "L13",
+      "id": "rayexample_print_runtime",
+      "community": 2,
+      "norm_label": "print_runtime()"
+    },
+    {
+      "label": "retrieve_task()",
+      "file_type": "code",
+      "source_file": "rayExample.py",
+      "source_location": "L28",
+      "id": "rayexample_retrieve_task",
+      "community": 2,
+      "norm_label": "retrieve_task()"
+    },
+    {
+      "label": "rayFibonacci.py",
+      "file_type": "code",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L1",
+      "id": "rayfibonacci",
+      "community": 0,
+      "norm_label": "rayfibonacci.py"
+    },
+    {
+      "label": "fibonacci_local()",
+      "file_type": "code",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L6",
+      "id": "rayfibonacci_fibonacci_local",
+      "community": 0,
+      "norm_label": "fibonacci_local()"
+    },
+    {
+      "label": "fibonacci_distributed()",
+      "file_type": "code",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L17",
+      "id": "rayfibonacci_fibonacci_distributed",
+      "community": 0,
+      "norm_label": "fibonacci_distributed()"
+    },
+    {
+      "label": "run_local()",
+      "file_type": "code",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L27",
+      "id": "rayfibonacci_run_local",
+      "community": 0,
+      "norm_label": "run_local()"
+    },
+    {
+      "label": "run_remote()",
+      "file_type": "code",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L34",
+      "id": "rayfibonacci_run_remote",
+      "community": 0,
+      "norm_label": "run_remote()"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ast_names.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "ast_names",
+      "target": "ast_names_find_functions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ast_names.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "ast_names",
+      "target": "ast_names_walk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "ast_names.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "ast_names_rationale_1",
+      "target": "ast_names",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayExample.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "rayexample",
+      "target": "rayexample_print_runtime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayExample.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "rayexample",
+      "target": "rayexample_retrieve",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayExample.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "rayexample",
+      "target": "rayexample_retrieve_task",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rayExample.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "rayexample_retrieve_task",
+      "target": "rayexample_retrieve",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "rayfibonacci",
+      "target": "rayfibonacci_fibonacci_distributed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "rayfibonacci",
+      "target": "rayfibonacci_fibonacci_local",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "rayfibonacci",
+      "target": "rayfibonacci_run_local",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "rayfibonacci",
+      "target": "rayfibonacci_run_remote",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "rayfibonacci_run_local",
+      "target": "rayfibonacci_fibonacci_local",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}

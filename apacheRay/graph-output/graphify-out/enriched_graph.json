@@ -1,0 +1,272 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "ast_names.py",
+      "file_type": "code",
+      "source_file": "ast_names.py",
+      "source_location": "L1",
+      "id": "ast_names",
+      "community": 1,
+      "norm_label": "ast_names.py",
+      "description": "This Python code demonstrates the usage of Tree-sitter, a parser generator for programming languages, to resolve identifier names from their row and column coordinates in a source file. The script showcases how to extract actual text from nodes within the parsed tree, rather than just positions.\n\nThe key parameter is `source_path`, which specifies the location of the Python source code file (rayExample.py) for parsing. No return values are explicitly defined as this script primarily focuses on manipulating and examining the parsed data.\n\nThe script might have dependencies on the Tree-sitter library (tree_sitter and tree_sitter_python) to perform the language parsing and analysis tasks. It's also essential to note that the performance of the code may be influenced by the size and complexity of the input source file.\n\nIn a larger system, this script could be part of tools like linters or refactoring assistants for Python that leverage Tree-sitter's capabilities to understand and manipulate the syntax of a program more effectively."
+    },
+    {
+      "label": "walk()",
+      "file_type": "code",
+      "source_file": "ast_names.py",
+      "source_location": "L36",
+      "id": "ast_names_walk",
+      "community": 1,
+      "norm_label": "walk()",
+      "description": "This Python code snippet walks through an abstract syntax tree (AST) of a program, starting from the root node. The purpose is to extract and print function names in the given program. For each identifier node encountered during the walk, it records the start and end points of the identifier (row and column numbers), decodes the text as UTF-8, and prints the formatted function name with its location in the code. The function takes two optional parameters: `node` (the current AST node to traverse) and `depth` (an integer representing the current depth level during the traversal). This function is part of a larger system that likely involves parsing, analyzing, or manipulating source code files."
+    },
+    {
+      "label": "find_functions()",
+      "file_type": "code",
+      "source_file": "ast_names.py",
+      "source_location": "L52",
+      "id": "ast_names_find_functions",
+      "community": 1,
+      "norm_label": "find_functions()",
+      "description": "This Python code, specifically the `find_functions` function within the `ast_names.py` file (at line 52), is designed to traverse an Abstract Syntax Tree (AST) and identify all defined functions in the tree. For each function found, it prints the function name along with its line number in the source code. This function is crucial for generating documentation or performing analysis on Python files by providing a means to list all defined functions. The key parameter here is `node`, which represents the current node in the AST being traversed. No return value is explicitly stated as it primarily serves a printing and reporting purpose, but it implicitly returns via function execution without any visible side effects or dependencies beyond what's provided within the AST. This function plays a significant role in understanding the structure of Python code by providing insights into defined functions within the script."
+    },
+    {
+      "label": "Demonstrates how tree-sitter resolves identifier names from [row, col] coordinat",
+      "file_type": "rationale",
+      "source_file": "ast_names.py",
+      "source_location": "L1",
+      "id": "ast_names_rationale_1",
+      "community": 1,
+      "norm_label": "demonstrates how tree-sitter resolves identifier names from [row, col] coordinat",
+      "description": "Demonstrates how tree-sitter resolves identifier names from [row, col] coordinat"
+    },
+    {
+      "label": "dashboard.py",
+      "file_type": "code",
+      "source_file": "dashboard.py",
+      "source_location": "L1",
+      "id": "dashboard",
+      "community": 3,
+      "norm_label": "dashboard.py",
+      "description": "This Python script initializes a Ray cluster with the dashboard enabled and prints the dashboard URL (if available) to console. If the dashboard URL is not available, it indicates that the Ray dashboard is not running and shuts down the current cluster. Additionally, it retrieves and displays the resource information of the Ray cluster. This script plays a crucial role in monitoring the resources and status of the Ray cluster within a larger distributed computing system. The key parameters are the context (which contains details about the Ray cluster) and the cluster_resources (a dictionary containing the resource details of the cluster). The return value is simply printing the dashboard URL and cluster resources to console, with no explicit return statement in the provided code. The script has a dependency on the Ray library for distributed computing."
+    },
+    {
+      "label": "rayExample.py",
+      "file_type": "code",
+      "source_file": "rayExample.py",
+      "source_location": "L1",
+      "id": "rayexample",
+      "community": 2,
+      "norm_label": "rayexample.py",
+      "description": "This Python script, named `rayExample.py`, is designed to demonstrate a simple retrieval and printing process of items from a predefined list (database). The list contains several words related to Ray and Machine Learning.\n\nThe script defines two functions: `retrieve()` and `print_runtime()`. The `retrieve(item)` function takes an integer as input, simulates a delay proportional to the input value, and returns that input value along with its corresponding item from the database list. This function may have a noticeable delay when processing large values of `item`.\n\nThe `print_runtime()` function is used to print the runtime of a given process (defined by the `input_data` variable) along with the resulting data. It also prints the input data, formatted as a list, each item on a new line.\n\nThis script serves as a basic example for demonstrating the execution time and retrieval of items from a database in a Python context, which can be useful for understanding and debugging more complex applications involving databases and timing in Python."
+    },
+    {
+      "label": "retrieve()",
+      "file_type": "code",
+      "source_file": "rayExample.py",
+      "source_location": "L9",
+      "id": "rayexample_retrieve",
+      "community": 2,
+      "norm_label": "retrieve()",
+      "description": "This code snippet defines two functions, `retrieve` and `print_runtime`, within a Python script named `rayExample.py`. The `retrieve` function takes an integer `item` as an argument, simulates a delay by sleeping for the calculated duration (`time.sleep(item / 10.)`), and then retrieves the corresponding item's data from a hypothetical database `database[item]`, finally returning both the item and its data as a tuple.\n\nThe `print_runtime` function accepts two arguments: `input_data` (a list of tuples containing retrieved items and their associated data) and `start_time` (the initial time at which the script started executing). It calculates the runtime by subtracting the start time from the current time, formats the result as a float with two decimal places, and prints it along with the list of tuples separated by newline characters.\n\nThe script starts by determining the current time using `time.time()`, then iteratively calls the `retrieve` function for items ranging from 1 to 8 (inclusive), compiling the results in a list named `data`. After printing the runtime and data, it displays a separator line.\n\nIn this larger system, this script appears to be designed as an example demonstrating the usage of Ray, a distributed computing framework for Python. However, no actual implementation or integration with Ray can be seen within the provided code snippet at Line 9."
+    },
+    {
+      "label": "print_runtime()",
+      "file_type": "code",
+      "source_file": "rayExample.py",
+      "source_location": "L13",
+      "id": "rayexample_print_runtime",
+      "community": 2,
+      "norm_label": "print_runtime()",
+      "description": "This Python code snippet defines a function `print_runtime` that prints the runtime taken for an operation and the resulting data. The key parameters are `input_data`, which is the data processed, and `start_time`, which is the time at the start of the operation. The function does not return a value but instead prints it to the console.\n\nThe code also includes local code that demonstrates its usage by retrieving some data (`data`) using an unspecified function `retrieve` on items from a range of 8, and then calling `print_runtime` with the start time and retrieved data.\n\nLater in the code, Ray is imported to enable distributed computing, and a remote function `retrieve` is defined. However, the provided code snippet does not include the body of this remote function or show its usage, so it's unclear how it interacts with `print_runtime`. The purpose of this code appears to be to time and display the results of an operation, potentially for debugging or performance analysis in a larger distributed computing system where Ray is being used."
+    },
+    {
+      "label": "retrieve_task()",
+      "file_type": "code",
+      "source_file": "rayExample.py",
+      "source_location": "L28",
+      "id": "rayexample_retrieve_task",
+      "community": 2,
+      "norm_label": "retrieve_task()",
+      "description": "This code snippet is a part of a larger system that utilizes Ray, a distributed computing framework in Python. The main function `retrieve_task(item)` retrieves an object based on the provided item ID. It initiates multiple such non-blocking calls by creating a list of object references using `ray.put()`.\n\nThe key parameter here is the `item`, which is an ID used to retrieve objects. The function does not have a return value as it uses Ray's remote function call feature.\n\nAn important side effect is that it modifies the state of the distributed system by creating and storing new objects in the Ray actor system. It also relies on the existence of a 'database' object which is used as input for these operations.\n\nThe purpose of this code is to perform multiple non-blocking retrieval tasks concurrently using Ray, which helps improve the efficiency of data-intensive applications by distributing computations across multiple processes or nodes."
+    },
+    {
+      "label": "rayFibonacci.py",
+      "file_type": "code",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L1",
+      "id": "rayfibonacci",
+      "community": 0,
+      "norm_label": "rayfibonacci.py",
+      "description": "The provided Python code defines a local Fibonacci number generation function (`fibonacci_local`) and sets up for implementing a distributed version of the same using Ray. The local function generates a sequence of Fibonacci numbers up to a specified size by iterating through the sequence, starting from 0, and adding the two previous numbers in the sequence to create each new number.\n\nThe `fibonacci_local` function accepts one parameter: `sequence_size`, which represents the number of Fibonacci numbers to generate and returns the generated sequence as a list.\n\nAlthough the provided code does not contain Ray-related functions, it serves as a foundation for a more scalable distributed version, where the computation can be parallelized using multiple worker processes managed by Ray. This could help reduce computation time when generating long Fibonacci sequences or dealing with larger data sets in a more extensive system.\n\nHowever, it's important to note that creating a Ray-based implementation might have dependencies on Ray's libraries and can potentially introduce side effects as distributed computing may affect resource usage and concurrency management."
+    },
+    {
+      "label": "fibonacci_local()",
+      "file_type": "code",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L6",
+      "id": "rayfibonacci_fibonacci_local",
+      "community": 0,
+      "norm_label": "fibonacci_local()",
+      "description": "This code defines two functions, `fibonacci_local` and `fibonacci_distributed`, which compute the Fibonacci sequence of a specified size. The local function calculates the sequence on a single thread, while the distributed function uses Ray to parallelize the computation across multiple processes.\n\n- The `fibonacci_local` function initializes an empty list `fibonacci`, and then iterates over the specified sequence size. If the index `i` is less than 2, it appends `i` to the list. Otherwise, it appends the sum of the previous two numbers in the sequence (found at indices `i-1` and `i-2` in the list). The function returns the sequence size upon completion.\n\n- The `fibonacci_distributed` function is a Ray remote function with similar logic to the local version, but it uses Ray's task parallelism to distribute the computation across multiple processes for faster execution on multi-core systems. It also utilizes Ray's task scheduler to manage the distribution of work and collection of results.\n\n- Both functions have a single input parameter called `sequence_size`, which is the number of Fibonacci numbers to generate. The functions do not have any side effects or dependencies beyond those inherent in calculating Fibonacci numbers, such as maintaining an internal list for storing the sequence.\n\n- In the larger system, these functions can be used to generate long sequences of Fibonacci numbers efficiently, either on a single machine or across a distributed cluster using Ray. This can be useful in various applications, such as numerical analysis, combinatorics, and algorithm testing."
+    },
+    {
+      "label": "fibonacci_distributed()",
+      "file_type": "code",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L17",
+      "id": "rayfibonacci_fibonacci_distributed",
+      "community": 0,
+      "norm_label": "fibonacci_distributed()",
+      "description": "This code defines two Python functions that calculate Fibonacci sequences. The first function, `fibonacci_distributed`, calculates a Fibonacci sequence of the given size (`sequence_size`) in a distributed manner by adding up the previous two numbers in the sequence iteratively.\n\nThe second function, `run_local`, runs the `fibonacci_local` function multiple times concurrently using all available CPU cores to speed up the computation process. It measures the execution time and prints out the sequence size and the local execution time. The purpose of these functions is to calculate Fibonacci sequences efficiently, particularly for larger sizes, by leveraging parallel processing. However, it's important to note that this implementation assumes the `fibonacci_local` function exists, which is not provided in the given code snippet."
+    },
+    {
+      "label": "run_local()",
+      "file_type": "code",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L27",
+      "id": "rayfibonacci_run_local",
+      "community": 0,
+      "norm_label": "run_local()",
+      "description": "This code defines two functions, `run_local` and `run_remote`, in a Python script named rayFibonacci.py (L27). Both functions are used to compute Fibonacci sequences but with different execution methods for performance comparison.\n\nThe `run_local` function calculates the Fibonacci sequence of a given size using multiple CPU cores locally, leveraging Python's multiprocessing and time modules to measure execution time. The key parameter is the sequence_size, which defines the length of the Fibonacci sequence to be computed. It does not have a return value but instead prints the sequence size and local execution time.\n\nThe `run_remote` function initializes a distributed computing environment with Ray, a powerful large-scale machine learning library that also supports general parallel computing. It then computes the Fibonacci sequence using multiple CPUs in a distributed manner and measures the remote execution time. The key parameter is again the sequence_size. This function returns the computed Fibonacci sequence as a list, but it also prints the sequence size and remote execution time for comparison purposes.\n\nBoth functions serve to demonstrate the performance of local and distributed computing methods in calculating Fibonacci sequences and provide insights into how these methods could be utilized within larger systems requiring parallel computations. The choice between `run_local` and `run_remote` would depend on the specific requirements of the system, such as computational resources available, scale of the problem, and preferred development environment."
+    },
+    {
+      "label": "run_remote()",
+      "file_type": "code",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L34",
+      "id": "rayfibonacci_run_remote",
+      "community": 0,
+      "norm_label": "run_remote()",
+      "description": "This code defines a Python function `run_remote()`, which is designed to calculate Fibonacci sequences using Ray, a distributed computing framework. The function initializes Ray, distributes the Fibonacci calculation across multiple CPU cores, and times the execution for measuring performance improvements from parallel processing.\n\nThe key parameter for this function is `sequence_size`, denoting the length of the Fibonacci sequence to be calculated. The function does not return a value explicitly but instead prints out the sequence size and the time taken for remote execution.\n\nOne important side effect of this code is that it starts Ray, which may have system-level dependencies such as Python 3.7 or later and the proper installation of Ray libraries. Additionally, this function consumes CPU resources during execution proportional to the number of cores used.\n\nIn a larger system, this function could be part of a benchmarking script or a distributed computing application that requires calculating Fibonacci sequences efficiently on multiple CPUs."
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ast_names.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "ast_names",
+      "target": "ast_names_find_functions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ast_names.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "ast_names",
+      "target": "ast_names_walk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "ast_names.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "ast_names_rationale_1",
+      "target": "ast_names",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayExample.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "rayexample",
+      "target": "rayexample_print_runtime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayExample.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "rayexample",
+      "target": "rayexample_retrieve",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayExample.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "rayexample",
+      "target": "rayexample_retrieve_task",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rayExample.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "rayexample_retrieve_task",
+      "target": "rayexample_retrieve",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "rayfibonacci",
+      "target": "rayfibonacci_fibonacci_distributed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "rayfibonacci",
+      "target": "rayfibonacci_fibonacci_local",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "rayfibonacci",
+      "target": "rayfibonacci_run_local",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "rayfibonacci",
+      "target": "rayfibonacci_run_remote",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "rayFibonacci.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "rayfibonacci_run_local",
+      "target": "rayfibonacci_fibonacci_local",
+      "confidence_score": 1.0
+    }
+  ],
+  "hyperedges": []
+}

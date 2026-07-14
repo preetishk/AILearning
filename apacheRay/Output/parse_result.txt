@@ -1,0 +1,304 @@
+(module [0, 0] - [63, 30]
+  (import_statement [0, 0] - [0, 11]
+    name: (dotted_name [0, 7] - [0, 11]
+      (identifier [0, 7] - [0, 11])))
+  (assignment [2, 0] - [5, 1]
+    left: (identifier [2, 0] - [2, 8])
+    right: (list [2, 11] - [5, 1]
+      (string [3, 4] - [3, 14]
+        (string_start [3, 4] - [3, 5])
+        (string_content [3, 5] - [3, 13])
+        (string_end [3, 13] - [3, 14]))
+      (string [3, 16] - [3, 21]
+        (string_start [3, 16] - [3, 17])
+        (string_content [3, 17] - [3, 20])
+        (string_end [3, 20] - [3, 21]))
+      (string [4, 4] - [4, 14]
+        (string_start [4, 4] - [4, 5])
+        (string_content [4, 5] - [4, 13])
+        (string_end [4, 13] - [4, 14]))
+      (string [4, 16] - [4, 29]
+        (string_start [4, 16] - [4, 17])
+        (string_content [4, 17] - [4, 28])
+        (string_end [4, 28] - [4, 29]))
+      (string [4, 31] - [4, 39]
+        (string_start [4, 31] - [4, 32])
+        (string_content [4, 32] - [4, 38])
+        (string_end [4, 38] - [4, 39]))
+      (string [4, 41] - [4, 46]
+        (string_start [4, 41] - [4, 42])
+        (string_content [4, 42] - [4, 45])
+        (string_end [4, 45] - [4, 46]))
+      (string [4, 48] - [4, 57]
+        (string_start [4, 48] - [4, 49])
+        (string_content [4, 49] - [4, 56])
+        (string_end [4, 56] - [4, 57]))
+      (string [4, 59] - [4, 69]
+        (string_start [4, 59] - [4, 60])
+        (string_content [4, 60] - [4, 68])
+        (string_end [4, 68] - [4, 69]))))
+  (function_definition [8, 0] - [10, 31]
+    name: (identifier [8, 4] - [8, 12])
+    parameters: (parameters [8, 12] - [8, 18]
+      (identifier [8, 13] - [8, 17]))
+    body: (block [9, 4] - [10, 31]
+      (call [9, 4] - [9, 26]
+        function: (attribute [9, 4] - [9, 14]
+          object: (identifier [9, 4] - [9, 8])
+          attribute: (identifier [9, 9] - [9, 14]))
+        arguments: (argument_list [9, 14] - [9, 26]
+          (binary_operator [9, 15] - [9, 25]
+            left: (identifier [9, 15] - [9, 19])
+            right: (float [9, 22] - [9, 25]))))
+      (return_statement [10, 4] - [10, 31]
+        (expression_list [10, 11] - [10, 31]
+          (identifier [10, 11] - [10, 15])
+          (subscript [10, 17] - [10, 31]
+            value: (identifier [10, 17] - [10, 25])
+            subscript: (identifier [10, 26] - [10, 30]))))))
+  (function_definition [12, 0] - [14, 32]
+    name: (identifier [12, 4] - [12, 17])
+    parameters: (parameters [12, 17] - [12, 41]
+      (identifier [12, 18] - [12, 28])
+      (identifier [12, 30] - [12, 40]))
+    body: (block [13, 4] - [14, 32]
+      (call [13, 4] - [13, 68]
+        function: (identifier [13, 4] - [13, 9])
+        arguments: (argument_list [13, 9] - [13, 68]
+          (string [13, 10] - [13, 67]
+            (string_start [13, 10] - [13, 12])
+            (string_content [13, 12] - [13, 21])
+            (interpolation [13, 21] - [13, 51]
+              expression: (binary_operator [13, 22] - [13, 46]
+                left: (call [13, 22] - [13, 33]
+                  function: (attribute [13, 22] - [13, 31]
+                    object: (identifier [13, 22] - [13, 26])
+                    attribute: (identifier [13, 27] - [13, 31]))
+                  arguments: (argument_list [13, 31] - [13, 33]))
+                right: (identifier [13, 36] - [13, 46]))
+              format_specifier: (format_specifier [13, 46] - [13, 50]))
+            (string_content [13, 51] - [13, 66])
+            (string_end [13, 66] - [13, 67]))))
+      (call [14, 4] - [14, 32]
+        function: (identifier [14, 4] - [14, 9])
+        arguments: (argument_list [14, 9] - [14, 32]
+          (list_splat [14, 10] - [14, 21]
+            (identifier [14, 11] - [14, 21]))
+          (keyword_argument [14, 23] - [14, 31]
+            name: (identifier [14, 23] - [14, 26])
+            value: (string [14, 27] - [14, 31]
+              (string_start [14, 27] - [14, 28])
+              (string_content [14, 28] - [14, 30]
+                (escape_sequence [14, 28] - [14, 30]))
+              (string_end [14, 30] - [14, 31])))))))
+  (assignment [17, 0] - [17, 19]
+    left: (identifier [17, 0] - [17, 5])
+    right: (call [17, 8] - [17, 19]
+      function: (attribute [17, 8] - [17, 17]
+        object: (identifier [17, 8] - [17, 12])
+        attribute: (identifier [17, 13] - [17, 17]))
+      arguments: (argument_list [17, 17] - [17, 19])))
+  (assignment [18, 0] - [18, 44]
+    left: (identifier [18, 0] - [18, 4])
+    right: (list_comprehension [18, 7] - [18, 44]
+      body: (call [18, 8] - [18, 22]
+        function: (identifier [18, 8] - [18, 16])
+        arguments: (argument_list [18, 16] - [18, 22]
+          (identifier [18, 17] - [18, 21])))
+      (for_in_clause [18, 23] - [18, 43]
+        left: (identifier [18, 27] - [18, 31])
+        right: (call [18, 35] - [18, 43]
+          function: (identifier [18, 35] - [18, 40])
+          arguments: (argument_list [18, 40] - [18, 43]
+            (integer [18, 41] - [18, 42]))))))
+  (call [19, 0] - [19, 26]
+    function: (identifier [19, 0] - [19, 13])
+    arguments: (argument_list [19, 13] - [19, 26]
+      (identifier [19, 14] - [19, 18])
+      (identifier [19, 20] - [19, 25])))
+  (call [21, 0] - [21, 35]
+    function: (identifier [21, 0] - [21, 5])
+    arguments: (argument_list [21, 5] - [21, 35]
+      (string [21, 6] - [21, 34]
+        (string_start [21, 6] - [21, 7])
+        (string_content [21, 7] - [21, 33])
+        (string_end [21, 33] - [21, 34]))))
+  (comment [22, 0] - [22, 12])
+  (import_statement [23, 0] - [23, 10]
+    name: (dotted_name [23, 7] - [23, 10]
+      (identifier [23, 7] - [23, 10])))
+  (decorated_definition [26, 0] - [28, 25]
+    (decorator [26, 0] - [26, 11]
+      (attribute [26, 1] - [26, 11]
+        object: (identifier [26, 1] - [26, 4])
+        attribute: (identifier [26, 5] - [26, 11])))
+    definition: (function_definition [27, 0] - [28, 25]
+      name: (identifier [27, 4] - [27, 17])
+      parameters: (parameters [27, 17] - [27, 23]
+        (identifier [27, 18] - [27, 22]))
+      body: (block [28, 4] - [28, 25]
+        (return_statement [28, 4] - [28, 25]
+          (call [28, 11] - [28, 25]
+            function: (identifier [28, 11] - [28, 19])
+            arguments: (argument_list [28, 19] - [28, 25]
+              (identifier [28, 20] - [28, 24])))))))
+  (assignment [30, 0] - [30, 19]
+    left: (identifier [30, 0] - [30, 5])
+    right: (call [30, 8] - [30, 19]
+      function: (attribute [30, 8] - [30, 17]
+        object: (identifier [30, 8] - [30, 12])
+        attribute: (identifier [30, 13] - [30, 17]))
+      arguments: (argument_list [30, 17] - [30, 19])))
+  (assignment [31, 0] - [33, 1]
+    left: (identifier [31, 0] - [31, 17])
+    right: (list_comprehension [31, 20] - [33, 1]
+      body: (call [32, 4] - [32, 30]
+        function: (attribute [32, 4] - [32, 24]
+          object: (identifier [32, 4] - [32, 17])
+          attribute: (identifier [32, 18] - [32, 24]))
+        arguments: (argument_list [32, 24] - [32, 30]
+          (identifier [32, 25] - [32, 29])))
+      (for_in_clause [32, 31] - [32, 51]
+        left: (identifier [32, 35] - [32, 39])
+        right: (call [32, 43] - [32, 51]
+          function: (identifier [32, 43] - [32, 48])
+          arguments: (argument_list [32, 48] - [32, 51]
+            (integer [32, 49] - [32, 50]))))))
+  (assignment [34, 0] - [34, 33]
+    left: (identifier [34, 0] - [34, 4])
+    right: (call [34, 7] - [34, 33]
+      function: (attribute [34, 7] - [34, 14]
+        object: (identifier [34, 7] - [34, 10])
+        attribute: (identifier [34, 11] - [34, 14]))
+      arguments: (argument_list [34, 14] - [34, 33]
+        (identifier [34, 15] - [34, 32]))))
+  (call [35, 0] - [35, 26]
+    function: (identifier [35, 0] - [35, 13])
+    arguments: (argument_list [35, 13] - [35, 26]
+      (identifier [35, 14] - [35, 18])
+      (identifier [35, 20] - [35, 25])))
+  (call [37, 0] - [37, 35]
+    function: (identifier [37, 0] - [37, 5])
+    arguments: (argument_list [37, 5] - [37, 35]
+      (string [37, 6] - [37, 34]
+        (string_start [37, 6] - [37, 7])
+        (string_content [37, 7] - [37, 33])
+        (string_end [37, 33] - [37, 34]))))
+  (call [38, 0] - [38, 27]
+    function: (identifier [38, 0] - [38, 5])
+    arguments: (argument_list [38, 5] - [38, 27]
+      (string [38, 6] - [38, 26]
+        (string_start [38, 6] - [38, 7])
+        (string_content [38, 7] - [38, 25])
+        (string_end [38, 25] - [38, 26]))))
+  (call [39, 0] - [39, 35]
+    function: (identifier [39, 0] - [39, 5])
+    arguments: (argument_list [39, 5] - [39, 35]
+      (string [39, 6] - [39, 34]
+        (string_start [39, 6] - [39, 7])
+        (string_content [39, 7] - [39, 33])
+        (string_end [39, 33] - [39, 34]))))
+  (assignment [41, 0] - [41, 33]
+    left: (identifier [41, 0] - [41, 13])
+    right: (call [41, 16] - [41, 33]
+      function: (attribute [41, 16] - [41, 23]
+        object: (identifier [41, 16] - [41, 19])
+        attribute: (identifier [41, 20] - [41, 23]))
+      arguments: (argument_list [41, 23] - [41, 33]
+        (identifier [41, 24] - [41, 32]))))
+  (decorated_definition [44, 0] - [47, 25]
+    (decorator [44, 0] - [44, 11]
+      (attribute [44, 1] - [44, 11]
+        object: (identifier [44, 1] - [44, 4])
+        attribute: (identifier [44, 5] - [44, 11])))
+    definition: (function_definition [45, 0] - [47, 25]
+      name: (identifier [45, 4] - [45, 17])
+      parameters: (parameters [45, 17] - [45, 27]
+        (identifier [45, 18] - [45, 22])
+        (identifier [45, 24] - [45, 26]))
+      body: (block [46, 4] - [47, 25]
+        (call [46, 4] - [46, 26]
+          function: (attribute [46, 4] - [46, 14]
+            object: (identifier [46, 4] - [46, 8])
+            attribute: (identifier [46, 9] - [46, 14]))
+          arguments: (argument_list [46, 14] - [46, 26]
+            (binary_operator [46, 15] - [46, 25]
+              left: (identifier [46, 15] - [46, 19])
+              right: (float [46, 22] - [46, 25]))))
+        (return_statement [47, 4] - [47, 25]
+          (expression_list [47, 11] - [47, 25]
+            (identifier [47, 11] - [47, 15])
+            (subscript [47, 17] - [47, 25]
+              value: (identifier [47, 17] - [47, 19])
+              subscript: (identifier [47, 20] - [47, 24])))))))
+  (assignment [49, 0] - [49, 19]
+    left: (identifier [49, 0] - [49, 5])
+    right: (call [49, 8] - [49, 19]
+      function: (attribute [49, 8] - [49, 17]
+        object: (identifier [49, 8] - [49, 12])
+        attribute: (identifier [49, 13] - [49, 17]))
+      arguments: (argument_list [49, 17] - [49, 19])))
+  (assignment [50, 0] - [52, 1]
+    left: (identifier [50, 0] - [50, 17])
+    right: (list_comprehension [50, 20] - [52, 1]
+      body: (call [51, 4] - [51, 45]
+        function: (attribute [51, 4] - [51, 24]
+          object: (identifier [51, 4] - [51, 17])
+          attribute: (identifier [51, 18] - [51, 24]))
+        arguments: (argument_list [51, 24] - [51, 45]
+          (identifier [51, 25] - [51, 29])
+          (identifier [51, 31] - [51, 44])))
+      (for_in_clause [51, 46] - [51, 66]
+        left: (identifier [51, 50] - [51, 54])
+        right: (call [51, 58] - [51, 66]
+          function: (identifier [51, 58] - [51, 63])
+          arguments: (argument_list [51, 63] - [51, 66]
+            (integer [51, 64] - [51, 65]))))))
+  (assignment [53, 0] - [53, 13]
+    left: (identifier [53, 0] - [53, 8])
+    right: (list [53, 11] - [53, 13]))
+  (while_statement [55, 0] - [61, 25]
+    condition: (comparison_operator [55, 6] - [55, 32]
+      (call [55, 6] - [55, 28]
+        function: (identifier [55, 6] - [55, 9])
+        arguments: (argument_list [55, 9] - [55, 28]
+          (identifier [55, 10] - [55, 27])))
+      (integer [55, 31] - [55, 32]))
+    body: (block [56, 4] - [61, 25]
+      (assignment [56, 4] - [58, 5]
+        left: (pattern_list [56, 4] - [56, 31]
+          (identifier [56, 4] - [56, 12])
+          (identifier [56, 14] - [56, 31]))
+        right: (call [56, 34] - [58, 5]
+          function: (attribute [56, 34] - [56, 42]
+            object: (identifier [56, 34] - [56, 37])
+            attribute: (identifier [56, 38] - [56, 42]))
+          arguments: (argument_list [56, 42] - [58, 5]
+            (identifier [57, 8] - [57, 25])
+            (keyword_argument [57, 27] - [57, 38]
+              name: (identifier [57, 27] - [57, 34])
+              value: (float [57, 35] - [57, 38])))))
+      (assignment [59, 4] - [59, 28]
+        left: (identifier [59, 4] - [59, 8])
+        right: (call [59, 11] - [59, 28]
+          function: (attribute [59, 11] - [59, 18]
+            object: (identifier [59, 11] - [59, 14])
+            attribute: (identifier [59, 15] - [59, 18]))
+          arguments: (argument_list [59, 18] - [59, 28]
+            (identifier [59, 19] - [59, 27]))))
+      (call [60, 4] - [60, 30]
+        function: (identifier [60, 4] - [60, 17])
+        arguments: (argument_list [60, 17] - [60, 30]
+          (identifier [60, 18] - [60, 22])
+          (identifier [60, 24] - [60, 29])))
+      (call [61, 4] - [61, 25]
+        function: (attribute [61, 4] - [61, 19]
+          object: (identifier [61, 4] - [61, 12])
+          attribute: (identifier [61, 13] - [61, 19]))
+        arguments: (argument_list [61, 19] - [61, 25]
+          (identifier [61, 20] - [61, 24])))))
+  (call [63, 0] - [63, 30]
+    function: (identifier [63, 0] - [63, 13])
+    arguments: (argument_list [63, 13] - [63, 30]
+      (identifier [63, 14] - [63, 22])
+      (identifier [63, 24] - [63, 29]))))

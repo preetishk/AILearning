@@ -1,0 +1,2287 @@
+[
+  {
+    "file": "ast_names.py",
+    "definitions": [
+      {
+        "line": 1,
+        "symbol": "ast_names/__init__:",
+        "role": "definition",
+        "source": "\"\"\""
+      },
+      {
+        "line": 12,
+        "symbol": "ast_names/PY_LANGUAGE.",
+        "role": "definition",
+        "source": "PY_LANGUAGE = Language(tspython.language())"
+      },
+      {
+        "line": 13,
+        "symbol": "ast_names/parser.",
+        "role": "definition",
+        "source": "parser = Parser(PY_LANGUAGE)"
+      },
+      {
+        "line": 15,
+        "symbol": "ast_names/source_path.",
+        "role": "definition",
+        "source": "source_path = \"src/rayExample.py\""
+      },
+      {
+        "line": 16,
+        "symbol": "ast_names/f.",
+        "role": "definition",
+        "source": "with open(source_path, \"rb\") as f:"
+      },
+      {
+        "line": 17,
+        "symbol": "ast_names/source_bytes.",
+        "role": "definition",
+        "source": "source_bytes = f.read()"
+      },
+      {
+        "line": 19,
+        "symbol": "ast_names/tree.",
+        "role": "definition",
+        "source": "tree = parser.parse(source_bytes)"
+      },
+      {
+        "line": 26,
+        "symbol": "ast_names/lines.",
+        "role": "definition",
+        "source": "lines = source_bytes.decode(\"utf-8\").splitlines()"
+      },
+      {
+        "line": 36,
+        "symbol": "ast_names/walk().",
+        "role": "definition",
+        "source": "def walk(node, depth=0):"
+      },
+      {
+        "line": 36,
+        "symbol": "ast_names/walk().(node)",
+        "role": "definition",
+        "source": "def walk(node, depth=0):"
+      },
+      {
+        "line": 36,
+        "symbol": "ast_names/walk().(depth)",
+        "role": "definition",
+        "source": "def walk(node, depth=0):"
+      },
+      {
+        "line": 38,
+        "symbol": "start",
+        "role": "definition",
+        "source": "start = node.start_point   # (row, col)"
+      },
+      {
+        "line": 39,
+        "symbol": "end",
+        "role": "definition",
+        "source": "end   = node.end_point"
+      },
+      {
+        "line": 40,
+        "symbol": "text",
+        "role": "definition",
+        "source": "text  = node.text.decode(\"utf-8\")   # <-- this is how graphify tools get the name"
+      },
+      {
+        "line": 42,
+        "symbol": "child",
+        "role": "definition",
+        "source": "for child in node.children:"
+      },
+      {
+        "line": 52,
+        "symbol": "ast_names/find_functions().",
+        "role": "definition",
+        "source": "def find_functions(node):"
+      },
+      {
+        "line": 52,
+        "symbol": "ast_names/find_functions().(node)",
+        "role": "definition",
+        "source": "def find_functions(node):"
+      },
+      {
+        "line": 54,
+        "symbol": "name_node",
+        "role": "definition",
+        "source": "name_node = node.child_by_field_name(\"name\")"
+      },
+      {
+        "line": 56,
+        "symbol": "line",
+        "role": "definition",
+        "source": "line = name_node.start_point[0] + 1"
+      },
+      {
+        "line": 57,
+        "symbol": "name",
+        "role": "definition",
+        "source": "name = name_node.text.decode(\"utf-8\")"
+      },
+      {
+        "line": 59,
+        "symbol": "child",
+        "role": "definition",
+        "source": "for child in node.children:"
+      }
+    ],
+    "call_sites": [
+      {
+        "line": 10,
+        "symbol": "tree_sitter/__init__:",
+        "role": "read",
+        "source": "from tree_sitter import Language, Parser"
+      },
+      {
+        "line": 13,
+        "symbol": "ast_names/PY_LANGUAGE.",
+        "role": "read",
+        "source": "parser = Parser(PY_LANGUAGE)"
+      },
+      {
+        "line": 16,
+        "symbol": "builtins/open().",
+        "role": "read",
+        "source": "with open(source_path, \"rb\") as f:"
+      },
+      {
+        "line": 16,
+        "symbol": "ast_names/source_path.",
+        "role": "read",
+        "source": "with open(source_path, \"rb\") as f:"
+      },
+      {
+        "line": 17,
+        "symbol": "ast_names/f.",
+        "role": "read",
+        "source": "source_bytes = f.read()"
+      },
+      {
+        "line": 17,
+        "symbol": "io/BufferedIOBase#read().",
+        "role": "read",
+        "source": "source_bytes = f.read()"
+      },
+      {
+        "line": 19,
+        "symbol": "ast_names/parser.",
+        "role": "read",
+        "source": "tree = parser.parse(source_bytes)"
+      },
+      {
+        "line": 19,
+        "symbol": "ast_names/source_bytes.",
+        "role": "read",
+        "source": "tree = parser.parse(source_bytes)"
+      },
+      {
+        "line": 26,
+        "symbol": "ast_names/source_bytes.",
+        "role": "read",
+        "source": "lines = source_bytes.decode(\"utf-8\").splitlines()"
+      },
+      {
+        "line": 26,
+        "symbol": "builtins/bytes#decode().",
+        "role": "read",
+        "source": "lines = source_bytes.decode(\"utf-8\").splitlines()"
+      },
+      {
+        "line": 26,
+        "symbol": "builtins/str#splitlines().",
+        "role": "read",
+        "source": "lines = source_bytes.decode(\"utf-8\").splitlines()"
+      },
+      {
+        "line": 27,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"How [row, col] resolves to text:\")"
+      },
+      {
+        "line": 28,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f\"  Source line 0 : {lines[0]!r}\")"
+      },
+      {
+        "line": 28,
+        "symbol": "ast_names/lines.",
+        "role": "read",
+        "source": "print(f\"  Source line 0 : {lines[0]!r}\")"
+      },
+      {
+        "line": 29,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f\"  [0, 7]-[0, 11]: {lines[0][7:11]!r}  (== 'time')\")"
+      },
+      {
+        "line": 29,
+        "symbol": "ast_names/lines.",
+        "role": "read",
+        "source": "print(f\"  [0, 7]-[0, 11]: {lines[0][7:11]!r}  (== 'time')\")"
+      },
+      {
+        "line": 30,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print()"
+      },
+      {
+        "line": 33,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"All identifiers with their actual text (node.text):\")"
+      },
+      {
+        "line": 34,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"-\" * 50)"
+      },
+      {
+        "line": 37,
+        "symbol": "ast_names/walk().(node)",
+        "role": "read",
+        "source": "if node.type == \"identifier\":"
+      },
+      {
+        "line": 38,
+        "symbol": "ast_names/walk().(node)",
+        "role": "read",
+        "source": "start = node.start_point   # (row, col)"
+      },
+      {
+        "line": 39,
+        "symbol": "ast_names/walk().(node)",
+        "role": "read",
+        "source": "end   = node.end_point"
+      },
+      {
+        "line": 40,
+        "symbol": "ast_names/walk().(node)",
+        "role": "read",
+        "source": "text  = node.text.decode(\"utf-8\")   # <-- this is how graphify tools get the name"
+      },
+      {
+        "line": 41,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f\"  {'  ' * depth}[{start[0]}, {start[1]}]-[{end[0]}, {end[1]}]  {text!r}\")"
+      },
+      {
+        "line": 41,
+        "symbol": "ast_names/walk().(depth)",
+        "role": "read",
+        "source": "print(f\"  {'  ' * depth}[{start[0]}, {start[1]}]-[{end[0]}, {end[1]}]  {text!r}\")"
+      },
+      {
+        "line": 42,
+        "symbol": "ast_names/walk().(node)",
+        "role": "read",
+        "source": "for child in node.children:"
+      },
+      {
+        "line": 43,
+        "symbol": "ast_names/walk().",
+        "role": "read",
+        "source": "walk(child, depth + 1)"
+      },
+      {
+        "line": 43,
+        "symbol": "ast_names/walk().(depth)",
+        "role": "read",
+        "source": "walk(child, depth + 1)"
+      },
+      {
+        "line": 45,
+        "symbol": "ast_names/walk().",
+        "role": "read",
+        "source": "walk(tree.root_node)"
+      },
+      {
+        "line": 45,
+        "symbol": "ast_names/tree.",
+        "role": "read",
+        "source": "walk(tree.root_node)"
+      },
+      {
+        "line": 46,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print()"
+      },
+      {
+        "line": 49,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"Function definitions found:\")"
+      },
+      {
+        "line": 50,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"-\" * 50)"
+      },
+      {
+        "line": 53,
+        "symbol": "ast_names/find_functions().(node)",
+        "role": "read",
+        "source": "if node.type == \"function_definition\":"
+      },
+      {
+        "line": 54,
+        "symbol": "ast_names/find_functions().(node)",
+        "role": "read",
+        "source": "name_node = node.child_by_field_name(\"name\")"
+      },
+      {
+        "line": 58,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f\"  line {line:3d}: def {name}(...)\")"
+      },
+      {
+        "line": 59,
+        "symbol": "ast_names/find_functions().(node)",
+        "role": "read",
+        "source": "for child in node.children:"
+      },
+      {
+        "line": 60,
+        "symbol": "ast_names/find_functions().",
+        "role": "read",
+        "source": "find_functions(child)"
+      },
+      {
+        "line": 62,
+        "symbol": "ast_names/find_functions().",
+        "role": "read",
+        "source": "find_functions(tree.root_node)"
+      },
+      {
+        "line": 62,
+        "symbol": "ast_names/tree.",
+        "role": "read",
+        "source": "find_functions(tree.root_node)"
+      }
+    ]
+  },
+  {
+    "file": "dashboard.py",
+    "definitions": [
+      {
+        "line": 1,
+        "symbol": "dashboard/__init__:",
+        "role": "definition",
+        "source": "import ray"
+      },
+      {
+        "line": 3,
+        "symbol": "dashboard/context.",
+        "role": "definition",
+        "source": "context = ray.init(include_dashboard=True)"
+      },
+      {
+        "line": 11,
+        "symbol": "dashboard/cluster_resources.",
+        "role": "definition",
+        "source": "cluster_resources = ray.cluster_resources()"
+      },
+      {
+        "line": 13,
+        "symbol": "dashboard/resource.",
+        "role": "definition",
+        "source": "for resource, value in cluster_resources.items():"
+      },
+      {
+        "line": 13,
+        "symbol": "dashboard/value.",
+        "role": "definition",
+        "source": "for resource, value in cluster_resources.items():"
+      }
+    ],
+    "call_sites": [
+      {
+        "line": 4,
+        "symbol": "dashboard/context.",
+        "role": "read",
+        "source": "if context.dashboard_url:"
+      },
+      {
+        "line": 5,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f\"Dashboard URL: {context.dashboard_url}\")"
+      },
+      {
+        "line": 5,
+        "symbol": "dashboard/context.",
+        "role": "read",
+        "source": "print(f\"Dashboard URL: {context.dashboard_url}\")"
+      },
+      {
+        "line": 7,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"Dashboard URL is not available. Ensure that the Ray dashboard is enabled and running.\")"
+      },
+      {
+        "line": 12,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"\\nCluster Resources:\")"
+      },
+      {
+        "line": 13,
+        "symbol": "dashboard/cluster_resources.",
+        "role": "read",
+        "source": "for resource, value in cluster_resources.items():"
+      },
+      {
+        "line": 14,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f\"{resource}: {value}\")"
+      },
+      {
+        "line": 14,
+        "symbol": "dashboard/resource.",
+        "role": "read",
+        "source": "print(f\"{resource}: {value}\")"
+      },
+      {
+        "line": 14,
+        "symbol": "dashboard/value.",
+        "role": "read",
+        "source": "print(f\"{resource}: {value}\")"
+      }
+    ]
+  },
+  {
+    "file": "enrich_graph.py",
+    "definitions": [
+      {
+        "line": 1,
+        "symbol": "enrich_graph/__init__:",
+        "role": "definition",
+        "source": "\"\"\""
+      },
+      {
+        "line": 19,
+        "symbol": "enrich_graph/parser.",
+        "role": "definition",
+        "source": "parser = argparse.ArgumentParser()"
+      },
+      {
+        "line": 25,
+        "symbol": "enrich_graph/args.",
+        "role": "definition",
+        "source": "args = parser.parse_args()"
+      },
+      {
+        "line": 28,
+        "symbol": "enrich_graph/f.",
+        "role": "definition",
+        "source": "with open(args.graph) as f:"
+      },
+      {
+        "line": 29,
+        "symbol": "enrich_graph/graph.",
+        "role": "definition",
+        "source": "graph = json.load(f)"
+      },
+      {
+        "line": 32,
+        "symbol": "enrich_graph/source_cache.",
+        "role": "definition",
+        "source": "source_cache = {}"
+      },
+      {
+        "line": 33,
+        "symbol": "enrich_graph/root.",
+        "role": "definition",
+        "source": "for root, _, files in os.walk(args.src):"
+      },
+      {
+        "line": 33,
+        "symbol": "enrich_graph/files.",
+        "role": "definition",
+        "source": "for root, _, files in os.walk(args.src):"
+      },
+      {
+        "line": 34,
+        "symbol": "enrich_graph/fname.",
+        "role": "definition",
+        "source": "for fname in files:"
+      },
+      {
+        "line": 36,
+        "symbol": "enrich_graph/path.",
+        "role": "definition",
+        "source": "path = os.path.join(root, fname)"
+      },
+      {
+        "line": 40,
+        "symbol": "enrich_graph/get_source_snippet().",
+        "role": "definition",
+        "source": "def get_source_snippet(source_file, source_location, context_lines=15):"
+      },
+      {
+        "line": 40,
+        "symbol": "enrich_graph/get_source_snippet().(source_file)",
+        "role": "definition",
+        "source": "def get_source_snippet(source_file, source_location, context_lines=15):"
+      },
+      {
+        "line": 40,
+        "symbol": "enrich_graph/get_source_snippet().(source_location)",
+        "role": "definition",
+        "source": "def get_source_snippet(source_file, source_location, context_lines=15):"
+      },
+      {
+        "line": 40,
+        "symbol": "enrich_graph/get_source_snippet().(context_lines)",
+        "role": "definition",
+        "source": "def get_source_snippet(source_file, source_location, context_lines=15):"
+      },
+      {
+        "line": 42,
+        "symbol": "lines",
+        "role": "definition",
+        "source": "lines = source_cache.get(source_file)"
+      },
+      {
+        "line": 47,
+        "symbol": "start",
+        "role": "definition",
+        "source": "start = int(source_location.lstrip(\"L\").split(\"-\")[0]) - 1"
+      },
+      {
+        "line": 50,
+        "symbol": "end",
+        "role": "definition",
+        "source": "end = min(start + context_lines, len(lines))"
+      },
+      {
+        "line": 54,
+        "symbol": "enrich_graph/ask_ollama().",
+        "role": "definition",
+        "source": "def ask_ollama(prompt, model):"
+      },
+      {
+        "line": 54,
+        "symbol": "enrich_graph/ask_ollama().(prompt)",
+        "role": "definition",
+        "source": "def ask_ollama(prompt, model):"
+      },
+      {
+        "line": 54,
+        "symbol": "enrich_graph/ask_ollama().(model)",
+        "role": "definition",
+        "source": "def ask_ollama(prompt, model):"
+      },
+      {
+        "line": 55,
+        "symbol": "payload",
+        "role": "definition",
+        "source": "payload = json.dumps({"
+      },
+      {
+        "line": 60,
+        "symbol": "req",
+        "role": "definition",
+        "source": "req = urllib.request.Request("
+      },
+      {
+        "line": 65,
+        "symbol": "resp",
+        "role": "definition",
+        "source": "with urllib.request.urlopen(req, timeout=300) as resp:"
+      },
+      {
+        "line": 71,
+        "symbol": "enrich_graph/node.",
+        "role": "definition",
+        "source": "for node in graph[\"nodes\"]:"
+      },
+      {
+        "line": 78,
+        "symbol": "enrich_graph/snippet.",
+        "role": "definition",
+        "source": "snippet = get_source_snippet("
+      },
+      {
+        "line": 88,
+        "symbol": "enrich_graph/prompt.",
+        "role": "definition",
+        "source": "prompt = f\"\"\"You are a code documentation assistant. Given this Python code snippet, write a concise knowledge description (3-5 sentences) that captures:"
+      },
+      {
+        "line": 105,
+        "symbol": "enrich_graph/description.",
+        "role": "definition",
+        "source": "description = ask_ollama(prompt, args.model)"
+      },
+      {
+        "line": 108,
+        "symbol": "enrich_graph/e.",
+        "role": "definition",
+        "source": "except Exception as e:"
+      }
+    ],
+    "call_sites": [
+      {
+        "line": 12,
+        "symbol": "json/__init__:",
+        "role": "read",
+        "source": "import json"
+      },
+      {
+        "line": 13,
+        "symbol": "argparse/__init__:",
+        "role": "read",
+        "source": "import argparse"
+      },
+      {
+        "line": 14,
+        "symbol": "os/__init__:",
+        "role": "read",
+        "source": "import os"
+      },
+      {
+        "line": 15,
+        "symbol": "`urllib.request`/__init__:",
+        "role": "read",
+        "source": "import urllib.request"
+      },
+      {
+        "line": 16,
+        "symbol": "`urllib.error`/__init__:",
+        "role": "read",
+        "source": "import urllib.error"
+      },
+      {
+        "line": 19,
+        "symbol": "argparse/__init__:",
+        "role": "read",
+        "source": "parser = argparse.ArgumentParser()"
+      },
+      {
+        "line": 19,
+        "symbol": "argparse/ArgumentParser#",
+        "role": "read",
+        "source": "parser = argparse.ArgumentParser()"
+      },
+      {
+        "line": 20,
+        "symbol": "enrich_graph/parser.",
+        "role": "read",
+        "source": "parser.add_argument(\"--graph\", default=\"graph-output/graphify-out/graph.json\")"
+      },
+      {
+        "line": 20,
+        "symbol": "argparse/_ActionsContainer#add_argument().",
+        "role": "read",
+        "source": "parser.add_argument(\"--graph\", default=\"graph-output/graphify-out/graph.json\")"
+      },
+      {
+        "line": 20,
+        "symbol": "argparse/_ActionsContainer#add_argument().(default)",
+        "role": "read",
+        "source": "parser.add_argument(\"--graph\", default=\"graph-output/graphify-out/graph.json\")"
+      },
+      {
+        "line": 21,
+        "symbol": "enrich_graph/parser.",
+        "role": "read",
+        "source": "parser.add_argument(\"--src\",   default=\"src\")"
+      },
+      {
+        "line": 21,
+        "symbol": "argparse/_ActionsContainer#add_argument().",
+        "role": "read",
+        "source": "parser.add_argument(\"--src\",   default=\"src\")"
+      },
+      {
+        "line": 21,
+        "symbol": "argparse/_ActionsContainer#add_argument().(default)",
+        "role": "read",
+        "source": "parser.add_argument(\"--src\",   default=\"src\")"
+      },
+      {
+        "line": 22,
+        "symbol": "enrich_graph/parser.",
+        "role": "read",
+        "source": "parser.add_argument(\"--out\",   default=\"graph-output/graphify-out/enriched_graph.json\")"
+      },
+      {
+        "line": 22,
+        "symbol": "argparse/_ActionsContainer#add_argument().",
+        "role": "read",
+        "source": "parser.add_argument(\"--out\",   default=\"graph-output/graphify-out/enriched_graph.json\")"
+      },
+      {
+        "line": 22,
+        "symbol": "argparse/_ActionsContainer#add_argument().(default)",
+        "role": "read",
+        "source": "parser.add_argument(\"--out\",   default=\"graph-output/graphify-out/enriched_graph.json\")"
+      },
+      {
+        "line": 23,
+        "symbol": "enrich_graph/parser.",
+        "role": "read",
+        "source": "parser.add_argument(\"--model\", default=\"qwen3.5:9b\")"
+      },
+      {
+        "line": 23,
+        "symbol": "argparse/_ActionsContainer#add_argument().",
+        "role": "read",
+        "source": "parser.add_argument(\"--model\", default=\"qwen3.5:9b\")"
+      },
+      {
+        "line": 23,
+        "symbol": "argparse/_ActionsContainer#add_argument().(default)",
+        "role": "read",
+        "source": "parser.add_argument(\"--model\", default=\"qwen3.5:9b\")"
+      },
+      {
+        "line": 24,
+        "symbol": "enrich_graph/parser.",
+        "role": "read",
+        "source": "parser.add_argument(\"--ollama-url\", default=\"http://localhost:11434\")"
+      },
+      {
+        "line": 24,
+        "symbol": "argparse/_ActionsContainer#add_argument().",
+        "role": "read",
+        "source": "parser.add_argument(\"--ollama-url\", default=\"http://localhost:11434\")"
+      },
+      {
+        "line": 24,
+        "symbol": "argparse/_ActionsContainer#add_argument().(default)",
+        "role": "read",
+        "source": "parser.add_argument(\"--ollama-url\", default=\"http://localhost:11434\")"
+      },
+      {
+        "line": 25,
+        "symbol": "enrich_graph/parser.",
+        "role": "read",
+        "source": "args = parser.parse_args()"
+      },
+      {
+        "line": 25,
+        "symbol": "argparse/ArgumentParser#parse_args().",
+        "role": "read",
+        "source": "args = parser.parse_args()"
+      },
+      {
+        "line": 28,
+        "symbol": "builtins/open().",
+        "role": "read",
+        "source": "with open(args.graph) as f:"
+      },
+      {
+        "line": 28,
+        "symbol": "enrich_graph/args.",
+        "role": "read",
+        "source": "with open(args.graph) as f:"
+      },
+      {
+        "line": 29,
+        "symbol": "json/__init__:",
+        "role": "read",
+        "source": "graph = json.load(f)"
+      },
+      {
+        "line": 29,
+        "symbol": "json/load().",
+        "role": "read",
+        "source": "graph = json.load(f)"
+      },
+      {
+        "line": 29,
+        "symbol": "enrich_graph/f.",
+        "role": "read",
+        "source": "graph = json.load(f)"
+      },
+      {
+        "line": 33,
+        "symbol": "os/__init__:",
+        "role": "read",
+        "source": "for root, _, files in os.walk(args.src):"
+      },
+      {
+        "line": 33,
+        "symbol": "os/walk().",
+        "role": "read",
+        "source": "for root, _, files in os.walk(args.src):"
+      },
+      {
+        "line": 33,
+        "symbol": "enrich_graph/args.",
+        "role": "read",
+        "source": "for root, _, files in os.walk(args.src):"
+      },
+      {
+        "line": 34,
+        "symbol": "enrich_graph/files.",
+        "role": "read",
+        "source": "for fname in files:"
+      },
+      {
+        "line": 35,
+        "symbol": "enrich_graph/fname.",
+        "role": "read",
+        "source": "if fname.endswith(\".py\"):"
+      },
+      {
+        "line": 36,
+        "symbol": "os/__init__:",
+        "role": "read",
+        "source": "path = os.path.join(root, fname)"
+      },
+      {
+        "line": 36,
+        "symbol": "os/path.",
+        "role": "read",
+        "source": "path = os.path.join(root, fname)"
+      },
+      {
+        "line": 36,
+        "symbol": "ntpath/join().",
+        "role": "read",
+        "source": "path = os.path.join(root, fname)"
+      },
+      {
+        "line": 36,
+        "symbol": "enrich_graph/root.",
+        "role": "read",
+        "source": "path = os.path.join(root, fname)"
+      },
+      {
+        "line": 36,
+        "symbol": "enrich_graph/fname.",
+        "role": "read",
+        "source": "path = os.path.join(root, fname)"
+      },
+      {
+        "line": 37,
+        "symbol": "builtins/open().",
+        "role": "read",
+        "source": "with open(path, encoding=\"utf-8\") as f:"
+      },
+      {
+        "line": 37,
+        "symbol": "enrich_graph/path.",
+        "role": "read",
+        "source": "with open(path, encoding=\"utf-8\") as f:"
+      },
+      {
+        "line": 37,
+        "symbol": "builtins/open().(encoding)",
+        "role": "read",
+        "source": "with open(path, encoding=\"utf-8\") as f:"
+      },
+      {
+        "line": 37,
+        "symbol": "enrich_graph/f.",
+        "role": "read",
+        "source": "with open(path, encoding=\"utf-8\") as f:"
+      },
+      {
+        "line": 38,
+        "symbol": "enrich_graph/source_cache.",
+        "role": "read",
+        "source": "source_cache[fname] = f.readlines()"
+      },
+      {
+        "line": 38,
+        "symbol": "enrich_graph/fname.",
+        "role": "read",
+        "source": "source_cache[fname] = f.readlines()"
+      },
+      {
+        "line": 38,
+        "symbol": "enrich_graph/f.",
+        "role": "read",
+        "source": "source_cache[fname] = f.readlines()"
+      },
+      {
+        "line": 38,
+        "symbol": "io/TextIOWrapper#readlines().",
+        "role": "read",
+        "source": "source_cache[fname] = f.readlines()"
+      },
+      {
+        "line": 42,
+        "symbol": "enrich_graph/source_cache.",
+        "role": "read",
+        "source": "lines = source_cache.get(source_file)"
+      },
+      {
+        "line": 42,
+        "symbol": "builtins/dict#get().",
+        "role": "read",
+        "source": "lines = source_cache.get(source_file)"
+      },
+      {
+        "line": 42,
+        "symbol": "enrich_graph/get_source_snippet().(source_file)",
+        "role": "read",
+        "source": "lines = source_cache.get(source_file)"
+      },
+      {
+        "line": 47,
+        "symbol": "builtins/int#",
+        "role": "read",
+        "source": "start = int(source_location.lstrip(\"L\").split(\"-\")[0]) - 1"
+      },
+      {
+        "line": 47,
+        "symbol": "enrich_graph/get_source_snippet().(source_location)",
+        "role": "read",
+        "source": "start = int(source_location.lstrip(\"L\").split(\"-\")[0]) - 1"
+      },
+      {
+        "line": 48,
+        "symbol": "builtins/ValueError#",
+        "role": "read",
+        "source": "except (ValueError, IndexError):"
+      },
+      {
+        "line": 48,
+        "symbol": "builtins/IndexError#",
+        "role": "read",
+        "source": "except (ValueError, IndexError):"
+      },
+      {
+        "line": 50,
+        "symbol": "builtins/min().",
+        "role": "read",
+        "source": "end = min(start + context_lines, len(lines))"
+      },
+      {
+        "line": 50,
+        "symbol": "enrich_graph/get_source_snippet().(context_lines)",
+        "role": "read",
+        "source": "end = min(start + context_lines, len(lines))"
+      },
+      {
+        "line": 51,
+        "symbol": "builtins/str#join().",
+        "role": "read",
+        "source": "return \"\".join(lines[start:end])"
+      },
+      {
+        "line": 55,
+        "symbol": "json/__init__:",
+        "role": "read",
+        "source": "payload = json.dumps({"
+      },
+      {
+        "line": 55,
+        "symbol": "json/dumps().",
+        "role": "read",
+        "source": "payload = json.dumps({"
+      },
+      {
+        "line": 56,
+        "symbol": "enrich_graph/ask_ollama().(model)",
+        "role": "read",
+        "source": "\"model\": model,"
+      },
+      {
+        "line": 57,
+        "symbol": "enrich_graph/ask_ollama().(prompt)",
+        "role": "read",
+        "source": "\"prompt\": prompt,"
+      },
+      {
+        "line": 59,
+        "symbol": "builtins/str#encode().",
+        "role": "read",
+        "source": "}).encode(\"utf-8\")"
+      },
+      {
+        "line": 60,
+        "symbol": "`urllib.request`/__init__:",
+        "role": "read",
+        "source": "req = urllib.request.Request("
+      },
+      {
+        "line": 61,
+        "symbol": "enrich_graph/args.",
+        "role": "read",
+        "source": "f\"{args.ollama_url}/api/generate\","
+      },
+      {
+        "line": 65,
+        "symbol": "`urllib.request`/__init__:",
+        "role": "read",
+        "source": "with urllib.request.urlopen(req, timeout=300) as resp:"
+      },
+      {
+        "line": 66,
+        "symbol": "json/__init__:",
+        "role": "read",
+        "source": "return json.loads(resp.read())[\"response\"].strip()"
+      },
+      {
+        "line": 66,
+        "symbol": "json/loads().",
+        "role": "read",
+        "source": "return json.loads(resp.read())[\"response\"].strip()"
+      },
+      {
+        "line": 69,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f\"Enriching {len(graph['nodes'])} nodes with {args.model}...\\n\")"
+      },
+      {
+        "line": 69,
+        "symbol": "enrich_graph/graph.",
+        "role": "read",
+        "source": "print(f\"Enriching {len(graph['nodes'])} nodes with {args.model}...\\n\")"
+      },
+      {
+        "line": 69,
+        "symbol": "enrich_graph/args.",
+        "role": "read",
+        "source": "print(f\"Enriching {len(graph['nodes'])} nodes with {args.model}...\\n\")"
+      },
+      {
+        "line": 71,
+        "symbol": "enrich_graph/graph.",
+        "role": "read",
+        "source": "for node in graph[\"nodes\"]:"
+      },
+      {
+        "line": 72,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "if node.get(\"file_type\") == \"rationale\":"
+      },
+      {
+        "line": 74,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "node[\"description\"] = node[\"label\"]"
+      },
+      {
+        "line": 74,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "node[\"description\"] = node[\"label\"]"
+      },
+      {
+        "line": 75,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f\"  [skip-rationale] {node['id']}\")"
+      },
+      {
+        "line": 75,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "print(f\"  [skip-rationale] {node['id']}\")"
+      },
+      {
+        "line": 78,
+        "symbol": "enrich_graph/get_source_snippet().",
+        "role": "read",
+        "source": "snippet = get_source_snippet("
+      },
+      {
+        "line": 79,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "node.get(\"source_file\", \"\"),"
+      },
+      {
+        "line": 80,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "node.get(\"source_location\", \"L1\")"
+      },
+      {
+        "line": 83,
+        "symbol": "enrich_graph/snippet.",
+        "role": "read",
+        "source": "if not snippet:"
+      },
+      {
+        "line": 84,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "node[\"description\"] = node[\"label\"]"
+      },
+      {
+        "line": 84,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "node[\"description\"] = node[\"label\"]"
+      },
+      {
+        "line": 85,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f\"  [no-source] {node['id']}\")"
+      },
+      {
+        "line": 85,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "print(f\"  [no-source] {node['id']}\")"
+      },
+      {
+        "line": 96,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "Code ({node['source_file']} {node['source_location']}):"
+      },
+      {
+        "line": 96,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "Code ({node['source_file']} {node['source_location']}):"
+      },
+      {
+        "line": 98,
+        "symbol": "enrich_graph/snippet.",
+        "role": "read",
+        "source": "{snippet}"
+      },
+      {
+        "line": 103,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f\"  [enriching] {node['id']} ...\", end=\" \", flush=True)"
+      },
+      {
+        "line": 103,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "print(f\"  [enriching] {node['id']} ...\", end=\" \", flush=True)"
+      },
+      {
+        "line": 103,
+        "symbol": "builtins/print().(end)",
+        "role": "read",
+        "source": "print(f\"  [enriching] {node['id']} ...\", end=\" \", flush=True)"
+      },
+      {
+        "line": 103,
+        "symbol": "builtins/print().(flush)",
+        "role": "read",
+        "source": "print(f\"  [enriching] {node['id']} ...\", end=\" \", flush=True)"
+      },
+      {
+        "line": 105,
+        "symbol": "enrich_graph/ask_ollama().",
+        "role": "read",
+        "source": "description = ask_ollama(prompt, args.model)"
+      },
+      {
+        "line": 105,
+        "symbol": "enrich_graph/prompt.",
+        "role": "read",
+        "source": "description = ask_ollama(prompt, args.model)"
+      },
+      {
+        "line": 105,
+        "symbol": "enrich_graph/args.",
+        "role": "read",
+        "source": "description = ask_ollama(prompt, args.model)"
+      },
+      {
+        "line": 106,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "node[\"description\"] = description"
+      },
+      {
+        "line": 106,
+        "symbol": "enrich_graph/description.",
+        "role": "read",
+        "source": "node[\"description\"] = description"
+      },
+      {
+        "line": 107,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"done\")"
+      },
+      {
+        "line": 108,
+        "symbol": "builtins/Exception#",
+        "role": "read",
+        "source": "except Exception as e:"
+      },
+      {
+        "line": 109,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "node[\"description\"] = node[\"label\"]"
+      },
+      {
+        "line": 109,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "node[\"description\"] = node[\"label\"]"
+      },
+      {
+        "line": 110,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f\"ERROR: {e}\")"
+      },
+      {
+        "line": 110,
+        "symbol": "enrich_graph/e.",
+        "role": "read",
+        "source": "print(f\"ERROR: {e}\")"
+      },
+      {
+        "line": 113,
+        "symbol": "os/__init__:",
+        "role": "read",
+        "source": "os.makedirs(os.path.dirname(args.out), exist_ok=True)"
+      },
+      {
+        "line": 113,
+        "symbol": "os/makedirs().",
+        "role": "read",
+        "source": "os.makedirs(os.path.dirname(args.out), exist_ok=True)"
+      },
+      {
+        "line": 113,
+        "symbol": "os/__init__:",
+        "role": "read",
+        "source": "os.makedirs(os.path.dirname(args.out), exist_ok=True)"
+      },
+      {
+        "line": 113,
+        "symbol": "os/path.",
+        "role": "read",
+        "source": "os.makedirs(os.path.dirname(args.out), exist_ok=True)"
+      },
+      {
+        "line": 113,
+        "symbol": "ntpath/join().",
+        "role": "read",
+        "source": "os.makedirs(os.path.dirname(args.out), exist_ok=True)"
+      },
+      {
+        "line": 113,
+        "symbol": "enrich_graph/args.",
+        "role": "read",
+        "source": "os.makedirs(os.path.dirname(args.out), exist_ok=True)"
+      },
+      {
+        "line": 113,
+        "symbol": "os/makedirs().(exist_ok)",
+        "role": "read",
+        "source": "os.makedirs(os.path.dirname(args.out), exist_ok=True)"
+      },
+      {
+        "line": 114,
+        "symbol": "builtins/open().",
+        "role": "read",
+        "source": "with open(args.out, \"w\", encoding=\"utf-8\") as f:"
+      },
+      {
+        "line": 114,
+        "symbol": "enrich_graph/args.",
+        "role": "read",
+        "source": "with open(args.out, \"w\", encoding=\"utf-8\") as f:"
+      },
+      {
+        "line": 114,
+        "symbol": "builtins/open().(encoding)",
+        "role": "read",
+        "source": "with open(args.out, \"w\", encoding=\"utf-8\") as f:"
+      },
+      {
+        "line": 114,
+        "symbol": "enrich_graph/f.",
+        "role": "read",
+        "source": "with open(args.out, \"w\", encoding=\"utf-8\") as f:"
+      },
+      {
+        "line": 115,
+        "symbol": "json/__init__:",
+        "role": "read",
+        "source": "json.dump(graph, f, indent=2)"
+      },
+      {
+        "line": 115,
+        "symbol": "json/dump().",
+        "role": "read",
+        "source": "json.dump(graph, f, indent=2)"
+      },
+      {
+        "line": 115,
+        "symbol": "enrich_graph/graph.",
+        "role": "read",
+        "source": "json.dump(graph, f, indent=2)"
+      },
+      {
+        "line": 115,
+        "symbol": "enrich_graph/f.",
+        "role": "read",
+        "source": "json.dump(graph, f, indent=2)"
+      },
+      {
+        "line": 115,
+        "symbol": "json/dump().(indent)",
+        "role": "read",
+        "source": "json.dump(graph, f, indent=2)"
+      },
+      {
+        "line": 117,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f\"\\nSaved enriched graph to: {args.out}\")"
+      },
+      {
+        "line": 117,
+        "symbol": "enrich_graph/args.",
+        "role": "read",
+        "source": "print(f\"\\nSaved enriched graph to: {args.out}\")"
+      },
+      {
+        "line": 120,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"\\n--- Sample node (retrieve()) ---\")"
+      },
+      {
+        "line": 121,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "for node in graph[\"nodes\"]:"
+      },
+      {
+        "line": 121,
+        "symbol": "enrich_graph/graph.",
+        "role": "read",
+        "source": "for node in graph[\"nodes\"]:"
+      },
+      {
+        "line": 122,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "if \"retrieve\" in node[\"id\"] and \"task\" not in node[\"id\"]:"
+      },
+      {
+        "line": 122,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "if \"retrieve\" in node[\"id\"] and \"task\" not in node[\"id\"]:"
+      },
+      {
+        "line": 123,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(json.dumps({"
+      },
+      {
+        "line": 123,
+        "symbol": "json/__init__:",
+        "role": "read",
+        "source": "print(json.dumps({"
+      },
+      {
+        "line": 123,
+        "symbol": "json/dumps().",
+        "role": "read",
+        "source": "print(json.dumps({"
+      },
+      {
+        "line": 124,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "\"id\": node[\"id\"],"
+      },
+      {
+        "line": 125,
+        "symbol": "enrich_graph/node.",
+        "role": "read",
+        "source": "\"description\": node.get(\"description\", \"\")"
+      },
+      {
+        "line": 126,
+        "symbol": "json/dumps().(indent)",
+        "role": "read",
+        "source": "}, indent=2))"
+      }
+    ]
+  },
+  {
+    "file": "rayExample.py",
+    "definitions": [
+      {
+        "line": 1,
+        "symbol": "rayExample/__init__:",
+        "role": "definition",
+        "source": "import time"
+      },
+      {
+        "line": 3,
+        "symbol": "rayExample/database.",
+        "role": "definition",
+        "source": "database = ["
+      },
+      {
+        "line": 9,
+        "symbol": "rayExample/retrieve().",
+        "role": "definition",
+        "source": "def retrieve(item):"
+      },
+      {
+        "line": 9,
+        "symbol": "rayExample/retrieve().(item)",
+        "role": "definition",
+        "source": "def retrieve(item):"
+      },
+      {
+        "line": 13,
+        "symbol": "rayExample/print_runtime().",
+        "role": "definition",
+        "source": "def print_runtime(input_data, start_time):"
+      },
+      {
+        "line": 13,
+        "symbol": "rayExample/print_runtime().(input_data)",
+        "role": "definition",
+        "source": "def print_runtime(input_data, start_time):"
+      },
+      {
+        "line": 13,
+        "symbol": "rayExample/print_runtime().(start_time)",
+        "role": "definition",
+        "source": "def print_runtime(input_data, start_time):"
+      },
+      {
+        "line": 18,
+        "symbol": "rayExample/start.",
+        "role": "definition",
+        "source": "start = time.time()"
+      },
+      {
+        "line": 19,
+        "symbol": "rayExample/data.",
+        "role": "definition",
+        "source": "data = [retrieve(item) for item in range(8)]"
+      },
+      {
+        "line": 19,
+        "symbol": "item",
+        "role": "definition",
+        "source": "data = [retrieve(item) for item in range(8)]"
+      },
+      {
+        "line": 28,
+        "symbol": "rayExample/retrieve_task().",
+        "role": "definition",
+        "source": "def retrieve_task(item):"
+      },
+      {
+        "line": 28,
+        "symbol": "rayExample/retrieve_task().(item)",
+        "role": "definition",
+        "source": "def retrieve_task(item):"
+      },
+      {
+        "line": 32,
+        "symbol": "rayExample/object_references.",
+        "role": "definition",
+        "source": "object_references = ["
+      },
+      {
+        "line": 33,
+        "symbol": "item",
+        "role": "definition",
+        "source": "retrieve_task.remote(item) for item in range(8)"
+      },
+      {
+        "line": 42,
+        "symbol": "rayExample/db_object_ref.",
+        "role": "definition",
+        "source": "db_object_ref = ray.put(database)"
+      },
+      {
+        "line": 46,
+        "symbol": "rayExample/retrieve_task().(item)",
+        "role": "definition",
+        "source": "def retrieve_task(item, db):"
+      },
+      {
+        "line": 46,
+        "symbol": "rayExample/retrieve_task().(db)",
+        "role": "definition",
+        "source": "def retrieve_task(item, db):"
+      },
+      {
+        "line": 52,
+        "symbol": "item",
+        "role": "definition",
+        "source": "retrieve_task.remote(item, db_object_ref) for item in range(8)"
+      },
+      {
+        "line": 54,
+        "symbol": "rayExample/all_data.",
+        "role": "definition",
+        "source": "all_data = []"
+      },
+      {
+        "line": 57,
+        "symbol": "rayExample/finished.",
+        "role": "definition",
+        "source": "finished, object_references = ray.wait("
+      }
+    ],
+    "call_sites": [
+      {
+        "line": 1,
+        "symbol": "time/__init__:",
+        "role": "read",
+        "source": "import time"
+      },
+      {
+        "line": 10,
+        "symbol": "time/__init__:",
+        "role": "read",
+        "source": "time.sleep(item / 10.)"
+      },
+      {
+        "line": 10,
+        "symbol": "time/sleep().",
+        "role": "read",
+        "source": "time.sleep(item / 10.)"
+      },
+      {
+        "line": 10,
+        "symbol": "rayExample/retrieve().(item)",
+        "role": "read",
+        "source": "time.sleep(item / 10.)"
+      },
+      {
+        "line": 11,
+        "symbol": "rayExample/retrieve().(item)",
+        "role": "read",
+        "source": "return item, database[item]"
+      },
+      {
+        "line": 11,
+        "symbol": "rayExample/database.",
+        "role": "read",
+        "source": "return item, database[item]"
+      },
+      {
+        "line": 11,
+        "symbol": "rayExample/retrieve().(item)",
+        "role": "read",
+        "source": "return item, database[item]"
+      },
+      {
+        "line": 14,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(f'Runtime: {time.time() - start_time:.2f} seconds, data:')"
+      },
+      {
+        "line": 14,
+        "symbol": "time/__init__:",
+        "role": "read",
+        "source": "print(f'Runtime: {time.time() - start_time:.2f} seconds, data:')"
+      },
+      {
+        "line": 14,
+        "symbol": "time/time().",
+        "role": "read",
+        "source": "print(f'Runtime: {time.time() - start_time:.2f} seconds, data:')"
+      },
+      {
+        "line": 14,
+        "symbol": "rayExample/print_runtime().(start_time)",
+        "role": "read",
+        "source": "print(f'Runtime: {time.time() - start_time:.2f} seconds, data:')"
+      },
+      {
+        "line": 15,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(*input_data, sep=\"\\n\")"
+      },
+      {
+        "line": 15,
+        "symbol": "rayExample/print_runtime().(input_data)",
+        "role": "read",
+        "source": "print(*input_data, sep=\"\\n\")"
+      },
+      {
+        "line": 15,
+        "symbol": "builtins/print().(sep)",
+        "role": "read",
+        "source": "print(*input_data, sep=\"\\n\")"
+      },
+      {
+        "line": 18,
+        "symbol": "time/__init__:",
+        "role": "read",
+        "source": "start = time.time()"
+      },
+      {
+        "line": 18,
+        "symbol": "time/time().",
+        "role": "read",
+        "source": "start = time.time()"
+      },
+      {
+        "line": 19,
+        "symbol": "rayExample/retrieve().",
+        "role": "read",
+        "source": "data = [retrieve(item) for item in range(8)]"
+      },
+      {
+        "line": 19,
+        "symbol": "builtins/range#",
+        "role": "read",
+        "source": "data = [retrieve(item) for item in range(8)]"
+      },
+      {
+        "line": 20,
+        "symbol": "rayExample/print_runtime().",
+        "role": "read",
+        "source": "print_runtime(data, start)"
+      },
+      {
+        "line": 20,
+        "symbol": "rayExample/data.",
+        "role": "read",
+        "source": "print_runtime(data, start)"
+      },
+      {
+        "line": 20,
+        "symbol": "rayExample/start.",
+        "role": "read",
+        "source": "print_runtime(data, start)"
+      },
+      {
+        "line": 22,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"==========================\")"
+      },
+      {
+        "line": 29,
+        "symbol": "rayExample/retrieve().",
+        "role": "read",
+        "source": "return retrieve(item)"
+      },
+      {
+        "line": 29,
+        "symbol": "rayExample/retrieve_task().(item)",
+        "role": "read",
+        "source": "return retrieve(item)"
+      },
+      {
+        "line": 31,
+        "symbol": "rayExample/start.",
+        "role": "read",
+        "source": "start = time.time()"
+      },
+      {
+        "line": 31,
+        "symbol": "time/__init__:",
+        "role": "read",
+        "source": "start = time.time()"
+      },
+      {
+        "line": 31,
+        "symbol": "time/time().",
+        "role": "read",
+        "source": "start = time.time()"
+      },
+      {
+        "line": 33,
+        "symbol": "rayExample/retrieve_task().",
+        "role": "read",
+        "source": "retrieve_task.remote(item) for item in range(8)"
+      },
+      {
+        "line": 33,
+        "symbol": "builtins/range#",
+        "role": "read",
+        "source": "retrieve_task.remote(item) for item in range(8)"
+      },
+      {
+        "line": 35,
+        "symbol": "rayExample/data.",
+        "role": "read",
+        "source": "data = ray.get(object_references)"
+      },
+      {
+        "line": 35,
+        "symbol": "rayExample/object_references.",
+        "role": "read",
+        "source": "data = ray.get(object_references)"
+      },
+      {
+        "line": 36,
+        "symbol": "rayExample/print_runtime().",
+        "role": "read",
+        "source": "print_runtime(data, start)"
+      },
+      {
+        "line": 36,
+        "symbol": "rayExample/data.",
+        "role": "read",
+        "source": "print_runtime(data, start)"
+      },
+      {
+        "line": 36,
+        "symbol": "rayExample/start.",
+        "role": "read",
+        "source": "print_runtime(data, start)"
+      },
+      {
+        "line": 38,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"==========================\")"
+      },
+      {
+        "line": 39,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"Non Blocking Calls\")"
+      },
+      {
+        "line": 40,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print(\"==========================\")"
+      },
+      {
+        "line": 42,
+        "symbol": "rayExample/database.",
+        "role": "read",
+        "source": "db_object_ref = ray.put(database)"
+      },
+      {
+        "line": 46,
+        "symbol": "rayExample/retrieve_task().",
+        "role": "read",
+        "source": "def retrieve_task(item, db):"
+      },
+      {
+        "line": 47,
+        "symbol": "time/__init__:",
+        "role": "read",
+        "source": "time.sleep(item / 10.)"
+      },
+      {
+        "line": 47,
+        "symbol": "time/sleep().",
+        "role": "read",
+        "source": "time.sleep(item / 10.)"
+      },
+      {
+        "line": 47,
+        "symbol": "rayExample/retrieve_task().(item)",
+        "role": "read",
+        "source": "time.sleep(item / 10.)"
+      },
+      {
+        "line": 48,
+        "symbol": "rayExample/retrieve_task().(item)",
+        "role": "read",
+        "source": "return item, db[item]"
+      },
+      {
+        "line": 48,
+        "symbol": "rayExample/retrieve_task().(db)",
+        "role": "read",
+        "source": "return item, db[item]"
+      },
+      {
+        "line": 48,
+        "symbol": "rayExample/retrieve_task().(item)",
+        "role": "read",
+        "source": "return item, db[item]"
+      },
+      {
+        "line": 50,
+        "symbol": "rayExample/start.",
+        "role": "read",
+        "source": "start = time.time()"
+      },
+      {
+        "line": 50,
+        "symbol": "time/__init__:",
+        "role": "read",
+        "source": "start = time.time()"
+      },
+      {
+        "line": 50,
+        "symbol": "time/time().",
+        "role": "read",
+        "source": "start = time.time()"
+      },
+      {
+        "line": 51,
+        "symbol": "rayExample/object_references.",
+        "role": "read",
+        "source": "object_references = ["
+      },
+      {
+        "line": 52,
+        "symbol": "rayExample/retrieve_task().",
+        "role": "read",
+        "source": "retrieve_task.remote(item, db_object_ref) for item in range(8)"
+      },
+      {
+        "line": 52,
+        "symbol": "rayExample/db_object_ref.",
+        "role": "read",
+        "source": "retrieve_task.remote(item, db_object_ref) for item in range(8)"
+      },
+      {
+        "line": 52,
+        "symbol": "builtins/range#",
+        "role": "read",
+        "source": "retrieve_task.remote(item, db_object_ref) for item in range(8)"
+      },
+      {
+        "line": 56,
+        "symbol": "rayExample/object_references.",
+        "role": "read",
+        "source": "while len(object_references) > 0:"
+      },
+      {
+        "line": 57,
+        "symbol": "rayExample/object_references.",
+        "role": "read",
+        "source": "finished, object_references = ray.wait("
+      },
+      {
+        "line": 58,
+        "symbol": "rayExample/object_references.",
+        "role": "read",
+        "source": "object_references, timeout=7.0"
+      },
+      {
+        "line": 60,
+        "symbol": "rayExample/data.",
+        "role": "read",
+        "source": "data = ray.get(finished)"
+      },
+      {
+        "line": 60,
+        "symbol": "rayExample/finished.",
+        "role": "read",
+        "source": "data = ray.get(finished)"
+      },
+      {
+        "line": 61,
+        "symbol": "rayExample/print_runtime().",
+        "role": "read",
+        "source": "print_runtime(data, start)"
+      },
+      {
+        "line": 61,
+        "symbol": "rayExample/data.",
+        "role": "read",
+        "source": "print_runtime(data, start)"
+      },
+      {
+        "line": 61,
+        "symbol": "rayExample/start.",
+        "role": "read",
+        "source": "print_runtime(data, start)"
+      },
+      {
+        "line": 62,
+        "symbol": "rayExample/all_data.",
+        "role": "read",
+        "source": "all_data.extend(data)"
+      },
+      {
+        "line": 62,
+        "symbol": "builtins/list#extend().",
+        "role": "read",
+        "source": "all_data.extend(data)"
+      },
+      {
+        "line": 62,
+        "symbol": "rayExample/data.",
+        "role": "read",
+        "source": "all_data.extend(data)"
+      },
+      {
+        "line": 64,
+        "symbol": "rayExample/print_runtime().",
+        "role": "read",
+        "source": "print_runtime(all_data, start)"
+      },
+      {
+        "line": 64,
+        "symbol": "rayExample/all_data.",
+        "role": "read",
+        "source": "print_runtime(all_data, start)"
+      },
+      {
+        "line": 64,
+        "symbol": "rayExample/start.",
+        "role": "read",
+        "source": "print_runtime(all_data, start)"
+      }
+    ]
+  },
+  {
+    "file": "rayFibonacci.py",
+    "definitions": [
+      {
+        "line": 1,
+        "symbol": "rayFibonacci/__init__:",
+        "role": "definition",
+        "source": "import os"
+      },
+      {
+        "line": 6,
+        "symbol": "rayFibonacci/fibonacci_local().",
+        "role": "definition",
+        "source": "def fibonacci_local(sequence_size):"
+      },
+      {
+        "line": 6,
+        "symbol": "rayFibonacci/fibonacci_local().(sequence_size)",
+        "role": "definition",
+        "source": "def fibonacci_local(sequence_size):"
+      },
+      {
+        "line": 7,
+        "symbol": "fibonacci",
+        "role": "definition",
+        "source": "fibonacci = []"
+      },
+      {
+        "line": 8,
+        "symbol": "i",
+        "role": "definition",
+        "source": "for i in range(0, sequence_size):"
+      },
+      {
+        "line": 17,
+        "symbol": "rayFibonacci/fibonacci_distributed().",
+        "role": "definition",
+        "source": "def fibonacci_distributed(sequence_size):"
+      },
+      {
+        "line": 17,
+        "symbol": "rayFibonacci/fibonacci_distributed().(sequence_size)",
+        "role": "definition",
+        "source": "def fibonacci_distributed(sequence_size):"
+      },
+      {
+        "line": 18,
+        "symbol": "fibonacci",
+        "role": "definition",
+        "source": "fibonacci = []"
+      },
+      {
+        "line": 19,
+        "symbol": "i",
+        "role": "definition",
+        "source": "for i in range(0, sequence_size):"
+      },
+      {
+        "line": 27,
+        "symbol": "rayFibonacci/run_local().",
+        "role": "definition",
+        "source": "def run_local(sequence_size):"
+      },
+      {
+        "line": 27,
+        "symbol": "rayFibonacci/run_local().(sequence_size)",
+        "role": "definition",
+        "source": "def run_local(sequence_size):"
+      },
+      {
+        "line": 28,
+        "symbol": "start_time",
+        "role": "definition",
+        "source": "start_time = time.time()"
+      },
+      {
+        "line": 29,
+        "symbol": "results",
+        "role": "definition",
+        "source": "results = [fibonacci_local(sequence_size) for _ in range(os.cpu_count())]"
+      },
+      {
+        "line": 30,
+        "symbol": "duration",
+        "role": "definition",
+        "source": "duration = time.time() - start_time"
+      },
+      {
+        "line": 34,
+        "symbol": "rayFibonacci/run_remote().",
+        "role": "definition",
+        "source": "def run_remote(sequence_size):"
+      },
+      {
+        "line": 34,
+        "symbol": "rayFibonacci/run_remote().(sequence_size)",
+        "role": "definition",
+        "source": "def run_remote(sequence_size):"
+      },
+      {
+        "line": 37,
+        "symbol": "start_time",
+        "role": "definition",
+        "source": "start_time = time.time()"
+      },
+      {
+        "line": 38,
+        "symbol": "results",
+        "role": "definition",
+        "source": "results = ray.get([fibonacci_distributed.remote(sequence_size) for _ in range(os.cpu_count())])"
+      },
+      {
+        "line": 39,
+        "symbol": "duration",
+        "role": "definition",
+        "source": "duration = time.time() - start_time"
+      }
+    ],
+    "call_sites": [
+      {
+        "line": 1,
+        "symbol": "os/__init__:",
+        "role": "read",
+        "source": "import os"
+      },
+      {
+        "line": 2,
+        "symbol": "time/__init__:",
+        "role": "read",
+        "source": "import time"
+      },
+      {
+        "line": 8,
+        "symbol": "builtins/range#",
+        "role": "read",
+        "source": "for i in range(0, sequence_size):"
+      },
+      {
+        "line": 8,
+        "symbol": "rayFibonacci/fibonacci_local().(sequence_size)",
+        "role": "read",
+        "source": "for i in range(0, sequence_size):"
+      },
+      {
+        "line": 10,
+        "symbol": "builtins/list#append().",
+        "role": "read",
+        "source": "fibonacci.append(i)"
+      },
+      {
+        "line": 12,
+        "symbol": "builtins/list#append().",
+        "role": "read",
+        "source": "fibonacci.append(fibonacci[i-1]+fibonacci[i-2])"
+      },
+      {
+        "line": 13,
+        "symbol": "rayFibonacci/fibonacci_local().(sequence_size)",
+        "role": "read",
+        "source": "return sequence_size"
+      },
+      {
+        "line": 19,
+        "symbol": "builtins/range#",
+        "role": "read",
+        "source": "for i in range(0, sequence_size):"
+      },
+      {
+        "line": 19,
+        "symbol": "rayFibonacci/fibonacci_distributed().(sequence_size)",
+        "role": "read",
+        "source": "for i in range(0, sequence_size):"
+      },
+      {
+        "line": 21,
+        "symbol": "builtins/list#append().",
+        "role": "read",
+        "source": "fibonacci.append(i)"
+      },
+      {
+        "line": 23,
+        "symbol": "builtins/list#append().",
+        "role": "read",
+        "source": "fibonacci.append(fibonacci[i-1]+fibonacci[i-2])"
+      },
+      {
+        "line": 24,
+        "symbol": "rayFibonacci/fibonacci_distributed().(sequence_size)",
+        "role": "read",
+        "source": "return sequence_size"
+      },
+      {
+        "line": 28,
+        "symbol": "time/__init__:",
+        "role": "read",
+        "source": "start_time = time.time()"
+      },
+      {
+        "line": 28,
+        "symbol": "time/time().",
+        "role": "read",
+        "source": "start_time = time.time()"
+      },
+      {
+        "line": 29,
+        "symbol": "rayFibonacci/fibonacci_local().",
+        "role": "read",
+        "source": "results = [fibonacci_local(sequence_size) for _ in range(os.cpu_count())]"
+      },
+      {
+        "line": 29,
+        "symbol": "rayFibonacci/run_local().(sequence_size)",
+        "role": "read",
+        "source": "results = [fibonacci_local(sequence_size) for _ in range(os.cpu_count())]"
+      },
+      {
+        "line": 29,
+        "symbol": "builtins/range#",
+        "role": "read",
+        "source": "results = [fibonacci_local(sequence_size) for _ in range(os.cpu_count())]"
+      },
+      {
+        "line": 29,
+        "symbol": "os/__init__:",
+        "role": "read",
+        "source": "results = [fibonacci_local(sequence_size) for _ in range(os.cpu_count())]"
+      },
+      {
+        "line": 29,
+        "symbol": "os/cpu_count().",
+        "role": "read",
+        "source": "results = [fibonacci_local(sequence_size) for _ in range(os.cpu_count())]"
+      },
+      {
+        "line": 30,
+        "symbol": "time/__init__:",
+        "role": "read",
+        "source": "duration = time.time() - start_time"
+      },
+      {
+        "line": 30,
+        "symbol": "time/time().",
+        "role": "read",
+        "source": "duration = time.time() - start_time"
+      },
+      {
+        "line": 31,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print('Sequence size: {}, Local execution time: {}'.format(sequence_size, duration))"
+      },
+      {
+        "line": 31,
+        "symbol": "rayFibonacci/run_local().(sequence_size)",
+        "role": "read",
+        "source": "print('Sequence size: {}, Local execution time: {}'.format(sequence_size, duration))"
+      },
+      {
+        "line": 37,
+        "symbol": "time/__init__:",
+        "role": "read",
+        "source": "start_time = time.time()"
+      },
+      {
+        "line": 37,
+        "symbol": "time/time().",
+        "role": "read",
+        "source": "start_time = time.time()"
+      },
+      {
+        "line": 38,
+        "symbol": "rayFibonacci/fibonacci_distributed().",
+        "role": "read",
+        "source": "results = ray.get([fibonacci_distributed.remote(sequence_size) for _ in range(os.cpu_count())])"
+      },
+      {
+        "line": 38,
+        "symbol": "rayFibonacci/run_remote().(sequence_size)",
+        "role": "read",
+        "source": "results = ray.get([fibonacci_distributed.remote(sequence_size) for _ in range(os.cpu_count())])"
+      },
+      {
+        "line": 38,
+        "symbol": "builtins/range#",
+        "role": "read",
+        "source": "results = ray.get([fibonacci_distributed.remote(sequence_size) for _ in range(os.cpu_count())])"
+      },
+      {
+        "line": 38,
+        "symbol": "os/__init__:",
+        "role": "read",
+        "source": "results = ray.get([fibonacci_distributed.remote(sequence_size) for _ in range(os.cpu_count())])"
+      },
+      {
+        "line": 38,
+        "symbol": "os/cpu_count().",
+        "role": "read",
+        "source": "results = ray.get([fibonacci_distributed.remote(sequence_size) for _ in range(os.cpu_count())])"
+      },
+      {
+        "line": 39,
+        "symbol": "time/__init__:",
+        "role": "read",
+        "source": "duration = time.time() - start_time"
+      },
+      {
+        "line": 39,
+        "symbol": "time/time().",
+        "role": "read",
+        "source": "duration = time.time() - start_time"
+      },
+      {
+        "line": 40,
+        "symbol": "builtins/print().",
+        "role": "read",
+        "source": "print('Sequence size: {}, Remote execution time: {}'.format(sequence_size, duration))"
+      },
+      {
+        "line": 40,
+        "symbol": "rayFibonacci/run_remote().(sequence_size)",
+        "role": "read",
+        "source": "print('Sequence size: {}, Remote execution time: {}'.format(sequence_size, duration))"
+      },
+      {
+        "line": 43,
+        "symbol": "rayFibonacci/run_local().",
+        "role": "read",
+        "source": "run_local(10000)"
+      },
+      {
+        "line": 44,
+        "symbol": "rayFibonacci/run_remote().",
+        "role": "read",
+        "source": "run_remote(10000)"
+      }
+    ]
+  }
+]
