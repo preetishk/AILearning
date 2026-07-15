@@ -1,0 +1,10 @@
+streamlit
+pydantic
+semantic-kernel
+pandas
+aiohttp
+numpy
+ollama
+fastapi
+uvicorn
+httpx

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "5f74efe4-9f43-44f5-a241-7899a7ec39e3",
+    "name": "Summarizer Agent",
+    "version": "1.0.0",
+    "description": "Summarizes long text documents.",
+    "owner": "System",
+    "status": "active",
+    "agent_type": "llm",
+    "endpoint": null,
+    "tags": [
+      "nlp",
+      "summary"
+    ],
+    "capabilities": [
+      {
+        "id": "f3a7889a-c5fe-459d-9226-5217ebc22ce4",
+        "name": "Summarize",
+        "description": "Summarize text",
+        "category": "General",
+        "parameters": [],
+        "tags": []
+      }
+    ],
+    "created_at": "2025-12-03T17:04:59.698128",
+    "updated_at": "2025-12-03T17:04:59.698128"
+  },
+  {
+    "id": "7e73193b-e265-459a-b221-ac89fbf2fe3a",
+    "name": "Search Agent",
+    "version": "1.0.0",
+    "description": "Searches the web for information.",
+    "owner": "System",
+    "status": "active",
+    "agent_type": "tool",
+    "endpoint": null,
+    "tags": [
+      "search",
+      "web"
+    ],
+    "capabilities": [
+      {
+        "id": "ecffc9b6-1bd5-4bad-b8d4-65bb18374b0f",
+        "name": "WebSearch",
+        "description": "Search Google",
+        "category": "General",
+        "parameters": [],
+        "tags": []
+      }
+    ],
+    "created_at": "2025-12-03T17:04:59.700626",
+    "updated_at": "2025-12-03T17:04:59.700626"
+  },
+  {
+    "id": "llama-coder-live",
+    "name": "Llama Coder",
+    "version": "1.0.0",
+    "description": "An AI agent powered by Llama 3.1 specialized in writing, debugging, and explaining Python code.",
+    "owner": "Engineering Team",
+    "status": "inactive",
+    "agent_type": "llm",
+    "endpoint": "http://localhost:8000/agents/llama-coder/invoke",
+    "tags": [
+      "python",
+      "coding",
+      "llama3.1",
+      "development"
+    ],
+    "capabilities": [
+      {
+        "id": "878001c6-b148-4484-a094-60987ca0b8e1",
+        "name": "Write Code",
+        "description": "Generates Python code based on natural language description.",
+        "category": "Development",
+        "parameters": [],
+        "tags": []
+      }
+    ],
+    "created_at": "2025-12-03T17:08:56.397808",
+    "updated_at": "2025-12-04T03:40:37.735288"
+  },
+  {
+    "id": "tech-writer-live",
+    "name": "Tech Writer",
+    "version": "1.0.0",
+    "description": "A documentation specialist agent using Llama 3.1 to create clear technical documentation.",
+    "owner": "Docs Team",
+    "status": "inactive",
+    "agent_type": "llm",
+    "endpoint": "http://localhost:8000/agents/tech-writer/invoke",
+    "tags": [
+      "writing",
+      "documentation",
+      "llama3.1",
+      "technical"
+    ],
+    "capabilities": [
+      {
+        "id": "dd0ded8e-0d45-4744-b182-87d683d7f6b3",
+        "name": "Generate Documentation",
+        "description": "Creates markdown documentation for code or systems.",
+        "category": "Documentation",
+        "parameters": [],
+        "tags": []
+      }
+    ],
+    "created_at": "2025-12-03T17:08:56.400810",
+    "updated_at": "2025-12-04T03:40:37.746569"
+  },
+  {
+    "id": "task-planner-live",
+    "name": "Task Planner",
+    "version": "1.0.0",
+    "description": "A strategic agent that breaks down complex goals into actionable steps.",
+    "owner": "Product Team",
+    "status": "inactive",
+    "agent_type": "multi_agent",
+    "endpoint": "http://localhost:8000/agents/task-planner/invoke",
+    "tags": [
+      "planning",
+      "strategy",
+      "orchestration"
+    ],
+    "capabilities": [
+      {
+        "id": "fa3e3d34-f32f-4c27-8310-d6b61d335c56",
+        "name": "Create Plan",
+        "description": "Decomposes a high-level goal into a list of tasks.",
+        "category": "Planning",
+        "parameters": [],
+        "tags": []
+      }
+    ],
+    "created_at": "2025-12-03T17:08:56.404331",
+    "updated_at": "2025-12-04T03:40:37.754837"
+  }
+]
