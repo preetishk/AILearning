@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "prompt": "Explain what a neural network is in one simple sentence.",
+    "reference": "A neural network is a computational model inspired by the structure of the human brain that learns patterns from data.",
+    "candidate": "A neural network is a computing system designed to mimic the biological brain's structure in order to recognize patterns in data.",
+    "commentary": "This candidate uses synonymous phrasing. BLEU and ROUGE will be moderate/high but not perfect, while LLM-as-Judge should rate it very highly for correctness and clarity."
+  },
+  {
+    "id": 2,
+    "prompt": "What is the capital of France and what is its population?",
+    "reference": "The capital of France is Paris, which has a population of approximately 2.1 million people.",
+    "candidate": "The capital of France is Paris, which has a population of approximately 8.9 million people.",
+    "commentary": "This candidate has high word overlap (high BLEU/ROUGE) but has a major factual error (population is incorrect). This demonstrates how BLEU/ROUGE can be fooled by factual inaccuracies, whereas LLM-as-Judge should penalize it heavily on correctness."
+  },
+  {
+    "id": 3,
+    "prompt": "How do you cook pasta?",
+    "reference": "Boil water in a large pot, add salt, add the pasta, and cook for 8 to 12 minutes until al dente, then drain.",
+    "candidate": "To prepare pasta, bring a pot of salted water to a rolling boil. Drop the pasta in and let it boil for about 10 minutes until it is cooked but still firm, then pour out the water.",
+    "commentary": "This candidate explains the same process using different verbs ('prepare' vs 'cook', 'bring to a rolling boil' vs 'boil water', 'pour out the water' vs 'drain'). BLEU will be lower due to different words, but ROUGE-L (LCS) and LLM-as-Judge should capture the strong semantic alignment."
+  }
+]
