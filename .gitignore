@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+wheels/
+sdist/
+var/
+lib/
+lib64/
+parts/
+.installed.cfg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# Environment & secrets — never commit these
+.env.local
+.env.*.local
+*.env
+secrets.yaml
+secrets.json
+config.local.*
+
+# Test & coverage artifacts
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+nosetests.xml
+*.cover
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs & temp files
+*.log
+*.tmp
+*.bak
